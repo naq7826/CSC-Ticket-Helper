@@ -152,6 +152,13 @@ function setText2(subject, subjectChoice, topic, content, reason) {
     var dtm = dt.getMonth()+1;
     var dtd = dt.getDate();
     var dty = dt.getFullYear();
+    var msg;
+    if (reason == "LIEN HE"){
+        msg = "Hãy nhập vào lý do KH gọi lên CSC trước khi lưu Ticket!";
+    }
+    else {
+        msg = "Hãy nhập vào các thông tin cần thiết như TÊN NHÀ HÀNG, THỜI GIAN GIAO TRỄ, MÃ BILL,... ĐẦY ĐỦ trước khi lưu Ticket!";
+    }
     if (empname.value == "") {
         throwError(empname);
     }
@@ -169,17 +176,11 @@ function setText2(subject, subjectChoice, topic, content, reason) {
                             'document.getElementById("' + field4 + '").value="'+topic+'";'+ 
                             'document.getElementById("' + field5 + '").value="'+sdt.value+'";'+
                             'document.getElementById("' + field6 + '").innerHTML="'+content+'";'+
-                            'document.getElementById("' + field7 +'").value="'+dtm+'/'+dtd+'/'+dty+'";'}); 
+                            'document.getElementById("' + field7 +'").value="'+dtm+'/'+dtd+'/'+dty+'";'+
+                            'alert("'+msg+'");'}); 
             });
         }
     }
-    if (reason == "LIEN HE") {
-        alert('Hãy nhập vào lý do KH gọi lên CSC ĐẦY ĐỦ trước khi lưu Ticket!');
-    }
-    else {
-        alert('Hãy nhập vào các thông tin cần thiết như TÊN NHÀ HÀNG, THỜI GIAN GIAO TRỄ, MÃ BILL,... ĐẦY ĐỦ trước khi lưu Ticket!"');
-    }
-    window.close();
 }
 
 //TƯ VẤN
