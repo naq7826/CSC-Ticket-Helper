@@ -147,7 +147,7 @@ function setText(subject, subjectChoice, topic, content) {
     }
 }
 
-function setText2(subject, subjectChoice, topic, content) {
+function setText2(subject, subjectChoice, topic, content, reason) {
     var dt = new Date(datetime.value);
     var dtm = dt.getMonth()+1;
     var dtd = dt.getDate();
@@ -173,6 +173,13 @@ function setText2(subject, subjectChoice, topic, content) {
             });
         }
     }
+    if (reason == "LIEN HE") {
+        alert('Hãy nhập vào lý do KH gọi lên CSC ĐẦY ĐỦ trước khi lưu Ticket!');
+    }
+    else {
+        alert('Hãy nhập vào các thông tin cần thiết như TÊN NHÀ HÀNG, THỜI GIAN GIAO TRỄ, MÃ BILL,... ĐẦY ĐỦ trước khi lưu Ticket!"');
+    }
+    window.close();
 }
 
 //TƯ VẤN
@@ -237,40 +244,40 @@ payment.onclick = function() {
 };
 
 lienhe.onclick = function() {
-    setText2("TV", "TV", LH,"LIÊN HỆ: ");
+    setText2("TV", "TV", LH,"LIÊN HỆ: ","LIEN HE");
 };
 
 //KHIẾU NẠI
 late.onclick = function() {
-    setText2("KN", "KN", GHTre,"GIAO TRỄ: NH GIAO TRỄ ... (BILL )");
+    setText2("KN", "KN", GHTre,"GIAO TRỄ: ____ GIAO TRỄ ____ (BILL ____)","");
 };
 
 quality.onclick = function() {
-    setText2("KN", "KN", KCL,"CHẤT LƯỢNG SP: NH + VẤN ĐỀ (BILL )");
+    setText2("KN", "KN", KCL,"CHẤT LƯỢNG SP: NH NÀO VẤN ĐỀ LÀ GÌ (BILL ____)","");
 };
 
 missing.onclick = function() {
-    setText2("KN", "KN", TSP,"THIẾU SP: NH GIAO THIẾU ... (BILL )");
+    setText2("KN", "KN", TSP,"THIẾU SP: ____ GIAO THIẾU ____ (BILL ____)","");
 };
 
 wrong.onclick = function() {
-    setText2("KN", "KN", TTDH,"SAI ORDER: NH GIAO SAI ... (BILL )");
+    setText2("KN", "KN", TTDH,"SAI ORDER: ____ GIAO SAI ____ (BILL ____)","");
 };
 
 noBill.onclick = function() {
-    setText2("KN", "KN", LH,"CHƯA XUẤT HDD: NH CHƯA XHDD NGÀY ... (BILL )");
+    setText2("KN", "KN", LH,"CHƯA XUẤT HDD: ____ CHƯA XHDD NGÀY ____ (BILL ____)","");
 };
 
 late2.onclick = function() {
-    setText2("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: NH GIAO TRỄ ... (BILL )");
+    setText2("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: ____ GIAO TRỄ ____ (BILL ____)","");
 };
 
 poison.onclick = function() {
-    setText2("KN", "KN", LH,"NGỘ ĐỘC TP: NH + VẤN ĐỀ (BILL )");
+    setText2("KN", "KN", LH,"NGỘ ĐỘC TP: NH NÀO VẤN ĐỀ LÀ GÌ (BILL ____)","");
 };
 
 BOGO.onclick = function() {
-    setText2("KN", "KN", LH,"BOGO NEW SCHEME: ");
+    setText2("KN", "KN", LH,"BOGO NEW SCHEME: GÓP Ý/PHÀN NÀN CỦA KHÁCH LÀ GÌ","");
 };
 
 //OTHER
