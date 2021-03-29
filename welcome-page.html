@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .sidenav {
+                height: 100%;
+                width: 160px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(182,0,0);
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
+            .sidenav a {
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 26px 8px 6px 6px;
+                text-decoration: none;
+                font-size: 20px;
+                color: white;
+                display: block;
+                text-align: center;
+                }
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+            .main {
+                margin-left: 160px; /* Same as the width of the sidebar */
+                padding: 0px 10px;
+            }
+            #logo {
+                max-width: 100%;
+                max-height: auto;
+                padding-bottom: 50px;
+            }
+            .showcase {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                text-align: center;
+                
+            }
+            table {
+                width:100%;
+                height: 100%;
+                border-width: 3px;
+                border-color: rgb(182,0,0);
+                border-style: dashed;
+            }
+            p{
+                width: 600px;
+                height: 250px;
+                text-align: left;
+                font-family: Arial, Helvetica, sans-serif; 
+                line-height: 25px; font-size: 18px;
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidenav">
+            <img id="logo" src="images/logo.png">
+            <a id="About" href="#">About</a>
+            <a id="hdsd"href="#">Hướng dẫn</a>
+        </div>
+        <div class="main">
+            <table>
+                <tr>
+                    <td style="align-items: center; width: 706px;">
+                        <div class="showcase">
+                            <img id="show" src="images/showcase.png" style="max-width: 100%; min-width: 300px; max-height: auto;">
+                            <img id="ins" src="images/instruct.png" style="max-width: 100%; min-width: 300px; max-height: auto; display: none;">
+                        </div>
+                    </td>
+                    <td>
+                        <h1 style="font-family: Arial, Helvetica, sans-serif; color: darkred; text-align: center; font-size: 45px;">CSC Ticket Helper</h1>
+                        <br>
+                        <p id="AboutText">
+                            • Viết ticket nhanh chóng <br>
+                            • Đảm bảo được độ chính xác <br>
+                            • Hỗ trợ được cho anh chị quản lý việc kéo ticket <br>
+                            • Giải quyết được vấn đề phải viết ticket chính xác với nội dung cuộc gọi <br>
+                        </p>
+                        <p id="hdsdText" hidden>
+                            • Extension này có cách sử dụng khá là đơn giản. Mình đã cài vào Google Chrome cho hầu hết các máy rồi. <br>
+                              <b>1.</b> Đầu tiên, mọi người ấn vào logo Pizza Hut ở góc trên, bên phải màn hình. <br>
+                              <b>2.</b> Sau đó, nhập tên, SĐT vào các ô trống tương ứng và chọn 1 trường hợp ticket. <br>
+                              <b>Lưu ý:</b> Lúc này 1 ticket đã xong, tuy nhiên, đối với 1 số trường hợp như Khiếu Nại thì mấy bạn sẽ phải nhập tay một số thứ như tên NH, mã bill,... và nhấn Save 1 cách thủ công
+                        </p>
+                    </td>
+                </tr>
+                <tr style="height: 1px">
+                    <td colspan="2">
+                        <div style="text-align: right; padding:10px; color: gray; font-size: 12px;"><b>Được tạo ra và chịu trách nhiệm bởi Anh Quân</b></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script src="welcome-page.js"></script>
+    </body>
+</html>

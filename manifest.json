@@ -1,0 +1,26 @@
+{
+    "name": "Pizza Hut Ticket Helper",
+    "version": "2.0",
+    "description": "A tool to help CSC agents create ticket more efficiency.",
+    "permissions": ["activeTab", "declarativeContent", "storage", "clipboardRead"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/pizza_hut16.png",
+        "32": "images/pizza_hut32.png",
+        "48": "images/pizza_hut48.png",
+        "128": "images/pizza_hut128.png"
+      }
+    },
+    "icons": {
+      "16": "images/pizza_hut16.png",
+      "32": "images/pizza_hut32.png",
+      "48": "images/pizza_hut48.png",
+      "128": "images/pizza_hut128.png"
+    },
+    "manifest_version": 2
+}
