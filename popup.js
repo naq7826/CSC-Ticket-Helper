@@ -229,7 +229,7 @@ noRes.onclick = function() {
 };
 
 outOfService.onclick = function() {
-    setText("TV", "TV", TVGH,"KVGH: NH HẾT GIỜ HĐ");
+    setText("TV", "TV", TVGH,"KVGH: HẾT GIỜ GH");
 };
 
 voucher.onclick = function() {
