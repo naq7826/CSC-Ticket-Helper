@@ -35,6 +35,7 @@ let empname = document.getElementById('name');
 let sdt = document.getElementById('sdt');
 let datetime = document.getElementById("datetime");
 let pasteClip = document.getElementById('pasteClip');
+let resetDate = document.getElementById('resetDate');
 var coll = document.getElementsByClassName("collapsible");
 var i; //FOR LOOP
 
@@ -61,9 +62,14 @@ let APP = "APP / STORELLET"
 
 
 window.onload = function() {
+    var date;
   	chrome.storage.local.get(['namee'], function(result) {
         empname.value=result.namee;
-	});   
+	});
+    chrome.storage.local.get(['yyyy','mm','dd'], function(result) {
+        date=result.yyyy+"-"+result.mm+'-'+result.dd;
+        var input = document.getElementById("datetime").value=date;
+	});
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		var tab = tabs[0].url.toString();
 		if (!tab.includes("NewForm") && tab.includes("phvsgnfilesrv")) {
@@ -72,17 +78,8 @@ window.onload = function() {
 			{code: 'document.getElementById("idHomePageNewItem").click();'});
 		}
 	});
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth()+1;
-    if (d < 10) {
-        d = "0"+d;
-    }
-    if (m < 10) {
-        m = "0"+m;
-    }
-    var y = date.getFullYear();
-    var input = document.getElementById("datetime").value=y+"-"+m+"-"+d;
+
+    
   	var input = document.getElementById("sdt").focus();
 }
 
@@ -95,6 +92,37 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 empname.onchange = function(){
     chrome.storage.local.set({'namee': empname.value});
 };
+
+datetime.onchange = function(){
+    var newDate=new Date(datetime.value);
+    var newDay=newDate.getDate();
+    var newMonth=newDate.getMonth()+1;
+    if (newDay < 10) {
+        newDay = "0"+newDay;
+    }
+    if (newMonth < 10) {
+        newMonth = "0"+newMonth;
+    }
+    chrome.storage.local.set({'dd': newDay});
+    chrome.storage.local.set({'mm': newMonth});
+    chrome.storage.local.set({'yyyy': newDate.getFullYear()});
+}
+
+resetDate.onclick = function() {
+    var newDate=new Date();
+    var newDay=newDate.getDate();
+    var newMonth=newDate.getMonth()+1;
+    if (newDay < 10) {
+        newDay = "0"+newDay;
+    }
+    if (newMonth < 10) {
+        newMonth = "0"+newMonth;
+    }
+    chrome.storage.local.set({'dd': newDay});
+    chrome.storage.local.set({'mm': newMonth});
+    chrome.storage.local.set({'yyyy': newDate.getFullYear()});
+    var input = document.getElementById("datetime").value=newDate.getFullYear()+'-'+newMonth+'-'+newDay;
+}
 
 pasteClip.onclick = function() {
     sdt.value="";
