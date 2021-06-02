@@ -23,8 +23,10 @@ let missing = document.getElementById('missing');
 let wrong = document.getElementById('wrong');
 let noBill = document.getElementById('noBill');
 let late2 = document.getElementById('late2');
-let BOGO = document.getElementById('BOGO');
+let ctkm = document.getElementById('ctkm');
 let poison = document.getElementById('poison');
+let attitude = document.getElementById('attitude');
+let wrongMoney = document.getElementById('wrongMoney');
 
 //OTHER - DEFINES
 let prank = document.getElementById('prank');
@@ -38,6 +40,8 @@ let pasteClip = document.getElementById('pasteClip');
 let resetDate = document.getElementById('resetDate');
 var coll = document.getElementsByClassName("collapsible");
 var i; //FOR LOOP
+var elements=document.getElementsByClassName("displayNone");
+var elements2=document.getElementsByClassName("disableItems");
 
 //VARIABLES
 let field1="Title_fa564e0f-0c70-4ab9-b863-0177e6ddd247_$TextField"; //TV
@@ -49,14 +53,23 @@ let field6="Content_f74e7e4c-463c-431b-ae77-6f720e31a3d7_$TextField_inplacerte";
 let field7="DueDate_cd21b4c2-6841-4f9e-a23a-738a65f99889_$DateTimeFieldDate"; //Date
 let saveBtn="ctl00_ctl26_g_d6611ecc_c3e5_47f8_9f1d_ab339e187141_ctl00_toolBarTbl_RightRptControls_ctl00_ctl00_diidIOSaveItem";
 
-let KMvMN = "Tư Vấn / Tư Vấn Khuyến Mãi Và Menu." // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
-let TVGH = "Tư Vấn / Tư Vấn Giao Hàng." // Tư vấn/ Tư Vấn Giao Hàng
-let TTDH = "Tư Vấn / Tư Vấn Tình Trạng Đơn Hàng." // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
-let LH = "Liên Hệ, Góp Ý, Đóng Góp Ý Kiến" // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
-let GHTre = "Giao Hàng / Trễ Giờ Với Quy Định." // Giao hàng/ Trễ Giờ Với Quy định
-let KCL = "Sản Phẩm / Kém Chất Lượng." // Sản Phẩm/ Kém Chất Lượng
-let TSP = "Giao Hàng / Thiếu Sản Phẩm." // Sản Phẩm/ Thiếu Sản Phẩm
-let APP = "APP / STORELLET"
+let KMvMN = "Tư Vấn / Tư Vấn Khuyến Mãi Và Menu."; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
+let TVGH = "Tư Vấn / Tư Vấn Giao Hàng."; // Tư vấn/ Tư Vấn Giao Hàng
+let TTDH = "Tư Vấn / Tư Vấn Tình Trạng Đơn Hàng."; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
+let LH = "Liên Hệ, Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
+let GHTre = "Giao Hàng / Trễ Giờ Với Quy Định."; // Giao hàng/ Trễ Giờ Với Quy định
+let KCL = "Sản Phẩm / Kém Chất Lượng."; // Sản Phẩm/ Kém Chất Lượng
+let TSP = "Giao Hàng / Thiếu Sản Phẩm."; // Sản Phẩm/ Thiếu Sản Phẩm
+let APP = "APP / STORELLET";
+let TLS = "Thái Độ/ Thiếu Lịch Sự";
+let TTHDKCX = "Thanh Toán Hoá Đơn Không Chính Xác"
+
+let AGENTS= ["KIMLUYEN", "BANGTAM", "THUYDUNG", "ANHQUAN", "TAMAN", "PHUONGANH", "BAOTRAN", "THANHHOA", "THUCDOAN", "DUCHUY","THAINGHI","LICHSU", "THUYANH", "PHAMVY", 
+            "MAIANH", "PHUONGNHI", "TUONGVY", "TRANVI", "YENNGAN", "MINHHA", "SONGHUONG", "ANHPHAM", "MYANH", "DUCDUY", "ANHKHOA", "THUNGAN", 
+            "KHANHNGOC", "GIAHAN", "LETHU", "ANHTUAN", "NHATRUC", "MITHUONG", "HOAIDUY", "HUYENTRAN", "QUOCBAO", "PHAMTHU", 
+            "HONGANH", "NGOCANH", "THANHTRUC", "PHUONGLINH", "HUYENPHUONG", "THUUYEN", "THUYVI", "MYNU", 
+            "THANHNGUYEN", "VANLEN", "ANHVI", "THANHTRUYEN", "DUCTHINH"];
+let BANNED_AGENTS= [""];
 
 //BEGIN
 
@@ -64,7 +77,7 @@ let APP = "APP / STORELLET"
 window.onload = function() {
     var date;
   	chrome.storage.local.get(['namee'], function(result) {
-        empname.value=result.namee;
+        checkAgentName(result.namee);
 	});
     chrome.storage.local.get(['yyyy','mm','dd'], function(result) {
         date=result.yyyy+"-"+result.mm+'-'+result.dd;
@@ -91,6 +104,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 empname.onchange = function(){
     chrome.storage.local.set({'namee': empname.value});
+    checkAgentName(empname.value);
 };
 
 datetime.onchange = function(){
@@ -144,6 +158,56 @@ for (i = 0; i < coll.length; i++) {
 
 function throwError(element) {
     element.focus();
+}
+
+function checkAgentName(agentName) {
+    if (agentName == ''){
+        for (var j=0; j<elements.length; j++) {
+            elements[j].style.display="none";
+        }
+        for (var j=0; j<elements2.length; j++) {
+            elements2[j].disabled = "true";
+        }
+        document.getElementsByClassName("displayTrue")[0].innerHTML="Nhập tên và nhấn Enter để kích hoạt tool<br><br>Lưu ý: tên phải VIẾT HOA và không thừa dấu cách ở cuối tên.";
+        document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
+    }
+    else {
+        empname.value=agentName;
+        if (AGENTS.indexOf(agentName.replaceAll(' ','')) > -1) {
+            if (BANNED_AGENTS.indexOf(agentName.replaceAll(' ','')) > -1){
+                for (var j=0; j<elements.length; j++) {
+                    elements[j].style.display="none";
+                }
+                for (var j=0; j<elements2.length; j++) {
+                    elements2[j].disabled = "true";
+                }
+                document.getElementsByClassName("displayTrue")[0].innerHTML="Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.";
+                document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
+            }
+            else {
+                for (var j=0; j<elements.length; j++) {
+                    elements[j].style.display="";
+                }
+                for (var j=0; j<elements2.length; j++) {
+                    elements2[j].disabled = "";
+                }
+                document.getElementsByClassName("displayTrue")[0].setAttribute('hidden', 'hidden');
+            }
+        }
+        else {
+            for (var j=0; j<elements.length; j++) {
+                elements[j].style.display="none";
+            }
+            for (var j=0; j<elements2.length; j++) {
+                elements2[j].disabled = "true";
+            }
+            document.getElementsByClassName("displayTrue")[0].innerHTML="Agent mới lên line cần sự approve của Ban Quản Lý CSC để sử dụng.";
+            document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
+            empname.value=agentName;
+        }
+    }
+    coll[0].nextElementSibling.style.maxHeight=null;
+    coll[1].nextElementSibling.style.maxHeight=null;
 }
 
 function setText(subject, subjectChoice, topic, content) {
@@ -305,8 +369,16 @@ poison.onclick = function() {
     setText2("KN", "KN", LH,"NGỘ ĐỘC TP: NH NÀO VẤN ĐỀ LÀ GÌ (BILL ____)","");
 };
 
-BOGO.onclick = function() {
-    setText2("KN", "KN", LH,"BOGO NEW SCHEME: GÓP Ý/PHÀN NÀN CỦA KHÁCH LÀ GÌ","");
+ctkm.onclick = function() {
+    setText2("KN", "KN", LH,"CTKM: TÊN CTKM + VẤN ĐỀ","");
+};
+
+attitude.onclick = function() {
+    setText2("KN", "KN", TLS,"THÁI ĐỘ PV: TÊN NH + VẤN ĐỀ","");
+};
+
+wrongMoney.onclick = function() {
+    setText2("KN", "KN", TTHDKCX,"THANH TOÁN: TÊN NH + THỐI SAI TIỀN / NV KHÔNG MANG TIỀN THỐI (BILL ____)","");
 };
 
 //OTHER

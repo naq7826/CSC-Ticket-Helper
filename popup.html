@@ -9,18 +9,18 @@
         <div id="banner">
             <input type="text" id="name" placeholder="Nhập tên">
             </br>
-            <input type="date" id="datetime">
-            <button id="resetDate" style="width: 44px; height: 21px; margin-right: 2px;">Today</button>
+            <input class="disableItems" type="date" id="datetime">
+            <button class="disableItems" id="resetDate" style="width: 44px; height: 21px; margin-right: 2px;">Today</button>
             </br>
-            <input type="text" id="sdt" placeholder="Nhập SĐT">
-            <button id="pasteClip" style="width: 44px; height: 21px; margin-right: 2px;">Paste</button>
+            <input class="disableItems" type="text" id="sdt" placeholder="Nhập SĐT">
+            <button class="disableItems" id="pasteClip" style="width: 44px; height: 21px; margin-right: 2px;">Paste</button>
         </div>
-        <div id="subject" style="margin-top: 5px;">───── TƯ VẤN ─────</div>
-        <button id="outzone">KVGH: OUTZONE</button>
-		<button id="bogo">KM: BOGO + GIÁ</button>
-        <button id="stats">TÌNH TRẠNG ĐH</button>
-        <button id="changeBill">ĐỔI/THÊM MÓN</button>
-        <button class="collapsible">Hiển thị thêm</button>
+        <div class="displayNone" id="subject" style="margin-top: 5px;">───── TƯ VẤN ─────</div>
+        <button class="displayNone" id="outzone">KVGH: OUTZONE</button>
+		<button class="displayNone" id="bogo">KM: BOGO + GIÁ</button>
+        <button class="displayNone" id="stats">TÌNH TRẠNG ĐH</button>
+        <button class="displayNone" id="changeBill">ĐỔI/THÊM MÓN</button>
+        <button class="collapsible displayNone">Hiển thị thêm</button>
         <div class="content">
             <button id="preserve">ĐẶT CHỖ</button>
             <button id="cancelBill">HUỶ ĐH</button>
@@ -35,21 +35,26 @@
 			<button id="payment">HÌNH THỨC TT</button>
 			<button id="lienhe">LIÊN HỆ</button>
         </div>
-        <div id="subject">──── KHIẾU NẠI ────</div>
-        <button id="late">GIAO TRỄ</button>
-        <button id="quality">CHẤT LƯỢNG SP</button>
-        <button id="missing">THIẾU SP</button>
-        <button id="wrong">SAI ORDER</button>
-        <button class="collapsible">Hiển thị thêm</button>
+        <div class="displayNone" id="subject">──── KHIẾU NẠI ────</div>
+        <button class="displayNone" id="late">GIAO TRỄ</button>
+        <button class="displayNone" id="quality">CHẤT LƯỢNG SP</button>
+        <button class="displayNone" id="missing">THIẾU SP</button>
+        <button class="displayNone" id="wrong">SAI ORDER</button>
+        <button class="collapsible displayNone">Hiển thị thêm</button>
         <div class="content">
             <button id="late2">GH TRỄ - LẦN 2</button>
 		    <button id="noBill">CHƯA XHDD</button>
             <button id="poison">NGỘ ĐỘC TP</button>
-            <button id="BOGO">NEW BOGO</button>
+            <button id="ctkm">CTKM</button>
+            <button id="attitude" disabled>THIẾU LỊCH SỰ</button>
+            <button id="wrongMoney" disabled>THỐI SAI TIỀN</button>
         </div>
-        <div id="subject">───── KHÁC ─────</div>
-        <button id="prank">NHÁ MÁY</button>
-        <button id="nosignal">KHÔNG TÍN HIỆU</button>
+        <div class="displayNone" id="subject">───── KHÁC ─────</div>
+        <button class="displayNone" id="prank">NHÁ MÁY</button>
+        <button class="displayNone" id="nosignal">KHÔNG TÍN HIỆU</button>
+        <div class="displayNone" id="subject">Nhân viên đang training không xài tool!</div>
+		<div class="displayNone" id="subject" style="font-size: 10px; margin: 0px;">Agent đang train NV mới để bạn xài tool mà bị quản lý phát hiện sẽ bị tắt tool trong vòng 1 tuần.</div>
+        <div class="displayTrue" id="subject" hidden></div>
         <p id="credit">Made by Anh Quân</p>
         <script src="popup.js"></script>
     </body>
