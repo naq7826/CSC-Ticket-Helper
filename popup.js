@@ -61,13 +61,14 @@ let GHTre = "Giao Hàng / Trễ Giờ Với Quy Định."; // Giao hàng/ Trễ 
 let KCL = "Sản Phẩm / Kém Chất Lượng."; // Sản Phẩm/ Kém Chất Lượng
 let TSP = "Giao Hàng / Thiếu Sản Phẩm."; // Sản Phẩm/ Thiếu Sản Phẩm
 let APP = "APP / STORELLET";
-let TLS = "Thái Độ/ Thiếu Lịch Sự";
-let TTHDKCX = "Thanh Toán Hoá Đơn Không Chính Xác"
+let TLS = "Thái Độ / Thiếu Lịch Sự.";
+let TNT = "Thái Độ / Thiếu Nhiệt Tình.";
+let TTHDKCX = "Thanh Toán  Hóa Đơn Không Chính Xác."
 
 let AGENTS= ["KIMLUYEN", "BANGTAM", "THUYDUNG", "ANHQUAN", "TAMAN", "PHUONGANH", "BAOTRAN", "THANHHOA", "THUCDOAN", "DUCHUY","THAINGHI","LICHSU", "THUYANH", "PHAMVY", 
             "MAIANH", "PHUONGNHI", "TUONGVY", "TRANVI", "YENNGAN", "MINHHA", "SONGHUONG", "ANHPHAM", "MYANH", "DUCDUY", "ANHKHOA", "THUNGAN", 
             "KHANHNGOC", "GIAHAN", "LETHU", "ANHTUAN", "NHATRUC", "MITHUONG", "HOAIDUY", "HUYENTRAN", "QUOCBAO", "PHAMTHU", 
-            "HONGANH", "NGOCANH", "THANHTRUC", "PHUONGLINH", "HUYENPHUONG", "THUUYEN", "THUYVI", "MYNU", 
+            "HONGANH", "NGOCANH", "THANHTRUC", "PHUONGLINH", "HUYENPHUONG", "THUUYEN", "THUYVI", "MYNU","THAOLINH", 
             "THANHNGUYEN", "VANLEN", "ANHVI", "THANHTRUYEN", "DUCTHINH"];
 let BANNED_AGENTS= [""];
 
@@ -170,11 +171,12 @@ function checkAgentName(agentName) {
         }
         document.getElementsByClassName("displayTrue")[0].innerHTML="Nhập tên và nhấn Enter để kích hoạt tool<br><br>Lưu ý: tên phải VIẾT HOA và không thừa dấu cách ở cuối tên.";
         document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
+		empname.focus();
     }
     else {
         empname.value=agentName;
-        if (AGENTS.indexOf(agentName.replaceAll(' ','')) > -1) {
-            if (BANNED_AGENTS.indexOf(agentName.replaceAll(' ','')) > -1){
+        if (AGENTS.indexOf(agentName.replace(/\s+/g,'')) > -1) {
+            if (BANNED_AGENTS.indexOf(agentName.replace(/\s+/g,'')) > -1){
                 for (var j=0; j<elements.length; j++) {
                     elements[j].style.display="none";
                 }
@@ -183,6 +185,7 @@ function checkAgentName(agentName) {
                 }
                 document.getElementsByClassName("displayTrue")[0].innerHTML="Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.";
                 document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
+				empname.focus();
             }
             else {
                 for (var j=0; j<elements.length; j++) {
@@ -192,6 +195,7 @@ function checkAgentName(agentName) {
                     elements2[j].disabled = "";
                 }
                 document.getElementsByClassName("displayTrue")[0].setAttribute('hidden', 'hidden');
+				sdt.focus();
             }
         }
         else {
@@ -204,6 +208,7 @@ function checkAgentName(agentName) {
             document.getElementsByClassName("displayTrue")[0].innerHTML="Agent mới lên line cần sự approve của Ban Quản Lý CSC để sử dụng.";
             document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
             empname.value=agentName;
+			empname.focus();
         }
     }
     coll[0].nextElementSibling.style.maxHeight=null;
