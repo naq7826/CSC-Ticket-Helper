@@ -10,6 +10,7 @@ chrome.runtime.onInstalled.addListener(function(details){
     }
     var y = date.getFullYear();
     chrome.storage.local.set({'namee': ""});
+    chrome.storage.local.set({'count': 0});
     chrome.storage.local.set({'dd': d});
     chrome.storage.local.set({'mm': m});
     chrome.storage.local.set({'yyyy': y});
@@ -28,6 +29,7 @@ chrome.runtime.onStartup.addListener(function() {
     }
     var y = date.getFullYear();
     chrome.storage.local.set({'namee': ""});
+    chrome.storage.local.set({'count': 0});
     chrome.storage.local.set({'dd': d});
     chrome.storage.local.set({'mm': m});
     chrome.storage.local.set({'yyyy': y});

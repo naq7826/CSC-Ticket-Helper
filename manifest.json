@@ -2,7 +2,7 @@
     "name": "Pizza Hut Ticket Helper",
     "version": "2.0",
     "description": "A tool to help CSC agents create ticket more efficiency.",
-    "permissions": ["activeTab", "declarativeContent", "storage", "clipboardRead"],
+    "permissions": ["activeTab", "storage", "clipboardRead"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false

@@ -23,6 +23,29 @@ button {
     margin-bottom: 2.5px;
 }
 
+#squareButton {
+    height: 21px;
+    width: 21px;
+    outline: none;
+    font-size: 10px;
+    text-align: center;
+    padding: 0px;
+}
+
+#counter {
+    width: 35px;
+    text-align: center;
+}
+
+#divCounter {
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(182, 0, 0);
+}
+
 .collapsible {
     height: 30px;
     width: 263px;

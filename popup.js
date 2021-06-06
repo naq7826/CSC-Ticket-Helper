@@ -38,6 +38,7 @@ let sdt = document.getElementById('sdt');
 let datetime = document.getElementById("datetime");
 let pasteClip = document.getElementById('pasteClip');
 let resetDate = document.getElementById('resetDate');
+let counter = document.getElementById('counter');
 var coll = document.getElementsByClassName("collapsible");
 var i; //FOR LOOP
 var elements=document.getElementsByClassName("displayNone");
@@ -77,12 +78,11 @@ let BANNED_AGENTS= [""];
 
 window.onload = function() {
     var date;
-  	chrome.storage.local.get(['namee'], function(result) {
+    chrome.storage.local.get(['namee','yyyy','mm','dd','count'], function(result) {
         checkAgentName(result.namee);
-	});
-    chrome.storage.local.get(['yyyy','mm','dd'], function(result) {
         date=result.yyyy+"-"+result.mm+'-'+result.dd;
-        var input = document.getElementById("datetime").value=date;
+        document.getElementById("datetime").value=date;
+        document.getElementById("counter").value=result.count;
 	});
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		var tab = tabs[0].url.toString();
@@ -105,6 +105,8 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 empname.onchange = function(){
     chrome.storage.local.set({'namee': empname.value});
+    counter.value=0;
+    chrome.storage.local.set({'count': counter.value});
     checkAgentName(empname.value);
 };
 
@@ -121,6 +123,14 @@ datetime.onchange = function(){
     chrome.storage.local.set({'dd': newDay});
     chrome.storage.local.set({'mm': newMonth});
     chrome.storage.local.set({'yyyy': newDate.getFullYear()});
+}
+
+counter.oninput = function(){
+    chrome.storage.local.set({'count': counter.value});
+}
+
+counter.onkeydown = function(e){
+    (e.keyCode===38 || e.keyCode===40) ? updateValue(e): e.preventDefault();
 }
 
 resetDate.onclick = function() {
@@ -228,6 +238,8 @@ function setText(subject, subjectChoice, topic, content) {
             throwError(sdt);
         }
         else {
+            counter.value=parseInt(counter.value)+1;
+            chrome.storage.local.set({'count': counter.value});
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.executeScript(
                         tabs[0].id,
@@ -264,6 +276,8 @@ function setText2(subject, subjectChoice, topic, content, reason) {
             throwError(sdt);
         }
         else {
+            counter.value=parseInt(counter.value)+1;
+            chrome.storage.local.set({'count': counter.value});
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.executeScript(
                         tabs[0].id,
