@@ -21,6 +21,8 @@
 		<button class="displayNone" id="bogo">KM: BOGO + GIÁ</button>
         <button class="displayNone" id="stats">TÌNH TRẠNG ĐH</button>
         <button class="displayNone" id="changeBill">ĐỔI/THÊM MÓN</button>
+        <button class="displayNone" id="addPoints">TÍCH ĐIỂM</button>
+        <button class="displayNone" id="outOfService">NGƯNG GIAO HÀNG</button>
         <button class="collapsible displayNone">Hiển thị thêm</button>
         <div class="content">
             <button id="preserve">ĐẶT CHỖ</button>
@@ -30,20 +32,19 @@
             <button id="menuPrice">MENU: GIÁ</button>
             <button id="meals">MENU: MÓN ĂN</button>
             <button id="noRes">KVGH: K CÓ NH HĐ</button>
-            <button id="outOfService">NGƯNG GIAO HÀNG</button>
             <button id="voucher">VOUCHER</button>
-			<button id="addPoints">TÍCH ĐIỂM</button>
 			<button id="payment">HÌNH THỨC TT</button>
 			<button id="lienhe">LIÊN HỆ</button>
         </div>
         <div class="displayNone" id="subject">──── KHIẾU NẠI ────</div>
         <button class="displayNone" id="late">GIAO TRỄ</button>
-        <button class="displayNone" id="quality">CHẤT LƯỢNG SP</button>
+        <button class="displayNone" id="burnt">BÁNH CHÁY</button>
         <button class="displayNone" id="missing">THIẾU SP</button>
-        <button class="displayNone" id="wrong">SAI ORDER</button>
+        <button class="displayNone" id="wrong">GIAO SAI SP</button>
         <button class="collapsible displayNone">Hiển thị thêm</button>
         <div class="content">
             <button id="late2">GH TRỄ - LẦN 2</button>
+            <button class="displayNone" id="quality">CHẤT LƯỢNG SP</button>
 		    <button id="noBill">CHƯA XHDD</button>
             <button id="poison">NGỘ ĐỘC TP</button>
             <button id="ctkm">CTKM</button>
@@ -53,10 +54,44 @@
         <div class="displayNone" id="subject">───── KHÁC ─────</div>
         <button class="displayNone" id="prank">NHÁ MÁY</button>
         <button class="displayNone" id="nosignal">KHÔNG TÍN HIỆU</button>
-        <div class="displayNone" id="subject">Nhân viên đang training không xài tool!</div>
-		<div class="displayNone" id="subject" style="font-size: 10px; margin: 0px;">Agent đang train NV mới để bạn xài tool mà bị quản lý phát hiện sẽ bị tắt tool trong vòng 1 tuần.</div>
+		<div class="displayNone" id="subject" style="padding-top: 10px;font-size: 10px; margin: 0px;">Agent đang train NV mới để bạn xài tool mà bị quản lý phát hiện sẽ bị tắt tool trong vòng 1 tuần.</div>
         <div class="displayTrue" id="subject" hidden></div>
         <p id="credit">Made by Anh Quân</p>
+        <div class="modal" id="lateKN">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>KHIẾU NẠI</h2>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="flag" hidden>
+                    <p class="a giaoTre giaoThieuMon giaoSaiMon biNgoDoc chatLuong XHDD banhChay thaiDo saiTien" style="text-align: left;" hidden>Nhập tên nhà hàng</p>
+                        <input class="a giaoTre giaoThieuMon giaoSaiMon biNgoDoc chatLuong XHDD banhChay thaiDo saiTien textboxKN" type="text" id="tenNH" placeholder="Tên nhà hàng" hidden>
+                    <p class="a giaoTre" style="text-align: left;" hidden>Số phút giao trễ</p>
+                        <input class="a giaoTre textboxKN" type="text" id="soPhut" placeholder="VD: 15" hidden>
+                    <p class="a XHDD" style="text-align: left;" hidden>Chưa XHDD ngày</p>
+                        <input class="a XHDD textboxKN" type="text" id="chuaXHDD" placeholder="VD: 08/11" hidden>
+                    <p class="a CTKM" style="text-align: left;" hidden>Tên CTKM</p>
+                        <input class="a CTKM textboxKN" type="text" id="tenCTKM" placeholder="VD: BOGO, B1G3,..." hidden>
+                    <p class="a CTKM chatLuong" style="text-align: left;" hidden>Vấn đề</p>
+                        <input class="a chatLuong CTKM textboxKN" type="text" id="vanDe" placeholder="" hidden>
+                    <p class="a lienHe" style="text-align: left;" hidden>Lý do KH gọi lên CSC</p>
+                        <input class="a lienHe textboxKN" type="text" id="lienHeText" placeholder="VD: HỎI ĐỊA CHỈ NH" hidden>
+                    <p class="a biNgoDoc" style="text-align: left;" hidden>Ngộ độc sau khi dùng món gì?</p>
+                        <input class="a biNgoDoc textboxKN" type="text" id="ngoDoc" placeholder="VD: PIZZA, MÌ, CƠM" hidden>
+                    <p class="a giaoThieuMon" style="text-align: left;" hidden>Giao thiếu món gì?</p>
+                        <input class="a giaoThieuMon textboxKN" type="text" id="giaoThieu" placeholder="VD: TƯƠNG CÀ, TƯƠNG ỚT" hidden>
+                    <p class="a giaoSaiMon" style="text-align: left;" hidden>Giao sai món gì?</p>
+                        <input class="a giaoSaiMon textboxKN" type="text" id="giaoSai" placeholder="VD: BÁNH, ĐẾ BÁNH, VIỀN BÁNH" hidden>
+                    <p class="a giaoTre giaoThieuMon giaoSaiMon biNgoDoc chatLuong XHDD banhChay saiTien" style="text-align: left;" hidden>Mã đơn hàng</p>
+                        <input class="a giaoTre giaoThieuMon giaoSaiMon biNgoDoc chatLuong XHDD banhChay saiTien textboxKN" type="text" id="billNum" placeholder="VD: 123456" hidden>
+                </div>
+                </br>
+                <div class="modal-footer" id="saveDiv">
+                    Lưu Ticket
+                </div>                
+            </div>
+        </div>
         <script src="popup.js"></script>
     </body>
 </html>

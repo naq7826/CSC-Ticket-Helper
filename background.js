@@ -34,4 +34,4 @@ chrome.runtime.onStartup.addListener(function() {
     chrome.storage.local.set({'mm': m});
     chrome.storage.local.set({'yyyy': y});
     //chrome.tabs.create({url: chrome.extension.getURL('welcome-page.html')});
-   })
+})
