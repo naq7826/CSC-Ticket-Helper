@@ -83,11 +83,12 @@ let TNT = "Thái Độ / Thiếu Nhiệt Tình.";
 let TTHDKCX = "Thanh Toán  Hóa Đơn Không Chính Xác."
 
 let AGENTS= ["KIM LUYEN", "BANG TAM", "THUY DUNG", "ANH QUAN", "TAM AN", "PHUONG ANH", "BAO TRAN", "THANH HOA", "THUC DOAN", "DUC HUY","THAI NGHI","LICH SU", "THUY ANH", "PHAM VY", 
-            "MAI ANH", "PHUONG NHI", "TUONG VY", "TRAN VI", "YEN NGAN", "MINH HA", "SONG HUONG", "ANH PHAM", "MY ANH", "DUC DUY", "ANH KHOA", "THU NGAN", 
+            "MAI ANH", "TUONG VY", "TRAN VI", "YEN NGAN", "MINH HA", "SONG HUONG", "ANH PHAM", "DUC DUY", "ANH KHOA", "THU NGAN", 
             "KHANH NGOC", "GIA HAN", "LE THU", "ANH TUAN", "NHA TRUC", "MI THUONG", "HOAI DUY", "HUYEN TRAN", "QUOC BAO", "PHAM THU", 
-            "HONG ANH", "NGOC ANH", "THANH TRUC", "PHUONG LINH", "HUYEN PHUONG", "THU UYEN", "THUY VI", "MY NU","THAO LINH", 
-            "THANH NGUYEN", "VAN LEN", "ANH VI", "THANH TRUYEN", "DUC THINH", "NHAN AI", "PHUONG UYEN", "THUY LINH"];
+            "HONG ANH", "NGOC ANH", "THANH TRUC", "PHUONG LINH", "HUYEN PHUONG", "THU UYEN", "THUY VI", "MY NU", "THAO LINH", 
+            "THANH NGUYEN", "VAN LEN", "ANH VI", "THANH TRUYEN", "DUC THINH", "NHAN AI", "PHUONG UYEN", "THUY LINH", "HONG CHAU", "MINH HANH", "CAM TU"];
 let BANNED_AGENTS= [""];
+
 
 //BEGIN
 
@@ -120,15 +121,33 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });
 
 empname.onchange = function(){
-    chrome.storage.local.set({'namee': empname.value});
-    counter.value=0;
-    chrome.storage.local.set({'count': counter.value});
-    checkAgentName(empname.value.trim());
+	chrome.storage.local.get('namee',function(result) {
+		if(result.namee != empname.value.trim()) {
+			chrome.storage.local.set({'namee': empname.value.trim()});
+		    counter.value=0;
+		    chrome.storage.local.set({'count': 0});
+		    checkAgentName(empname.value.trim());
+		}
+		else {
+			empname.value=empname.value.trim();
+		}
+	})
+    
 };
 
 sdt.onchange = function() {
-    sdt.value=sdt.value.trim();
-    //sdt.value=sdt.value.replace(/[^0-9]/g,"");
+    //sdt.value=sdt.value.trim();
+    sdt.value=sdt.value.replace(/[^0-9]/g,"");
+}
+
+soPhut.onchange = function() {
+    //sdt.value=sdt.value.trim();
+    soPhut.value=soPhut.value.replace(/[^0-9]/g,"");
+}
+
+billNum.onchange = function() {
+    //sdt.value=sdt.value.trim();
+    billNum.value=billNum.value.replace(/[^0-9]/g,"");
 }
 
 datetime.onchange = function(){
@@ -190,10 +209,10 @@ window.onclick = function(event) {
             saveTicket("TV", "TV", LH, "LIEN HE");
         }
         if (flag.value == 1) {
-            saveComplainTicket("KN", "KN", GHTre,"GIAO TRỄ:", "GIAO TRE");
+            saveComplainTicket("KN", "KN", GHTre,"", "GIAO TRE");
         }
         if (flag.value == 2) {
-            saveComplainTicket("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN:", "GIAO TRE");
+            saveComplainTicket("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: ", "GIAO TRE");
         }
         if (flag.value == 3) {
             saveComplainTicket("KN", "KN", KCL,"", "BANH CHAY");
@@ -263,7 +282,12 @@ function checkAgentName(agentName) {
                 for (var j=0; j<elements2.length; j++) {
                     elements2[j].disabled = "true";
                 }
-                document.getElementsByClassName("displayTrue")[0].innerHTML="Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.";
+				if (agentName == "DUC HUY")	{
+					document.getElementsByClassName("displayTrue")[0].innerHTML="10k/ngày";
+				}
+                else {
+					document.getElementsByClassName("displayTrue")[0].innerHTML="Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.";
+				}
                 document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
 				empname.focus();
             }
@@ -335,7 +359,7 @@ function saveComplainTicket(subject, subjectChoice, topic, mainContent, content)
     counter.value=parseInt(counter.value)+1;
     chrome.storage.local.set({'count': counter.value});
     if (content == "GIAO TRE"){
-        msg=mainContent+" "+tenNH.value.trim()+" GIAO TRỄ "+soPhut.value.trim()+"' (BILL "+billNum.value.trim()+")";
+        msg=mainContent+tenNH.value.trim()+" GIAO TRỄ "+soPhut.value.trim()+"' (BILL "+billNum.value.trim()+")";
         //msg2=tenNH.value+" DELIVERED "+soPhut.value+" MINUTES LATE (BILL "+billNum.value+").";
     }
     if (content == "BANH CHAY"){
