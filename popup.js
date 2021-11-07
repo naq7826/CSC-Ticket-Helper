@@ -122,14 +122,13 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
 empname.onchange = function(){
 	chrome.storage.local.get('namee',function(result) {
-		if(result.namee != empname.value.trim()) {
-			chrome.storage.local.set({'namee': empname.value.trim()});
+		empname.value=empname.value.trim();
+		empname.value=empname.value.toUpperCase();
+		if(result.namee != empname.value) {
+			chrome.storage.local.set({'namee': empname.value});
 		    counter.value=0;
 		    chrome.storage.local.set({'count': 0});
-		    checkAgentName(empname.value.trim());
-		}
-		else {
-			empname.value=empname.value.trim();
+		    checkAgentName(empname.value);
 		}
 	})
     
@@ -260,6 +259,10 @@ function throwError(element) {
     element.focus();
 }
 
+function setWarning(text) {
+	document.getElementsByClassName("displayTrue")[0].innerHTML=text;
+}
+
 function checkAgentName(agentName) {
     if (agentName == ''){
         for (var j=0; j<elements.length; j++) {
@@ -268,7 +271,7 @@ function checkAgentName(agentName) {
         for (var j=0; j<elements2.length; j++) {
             elements2[j].disabled = "true";
         }
-        document.getElementsByClassName("displayTrue")[0].innerHTML="Nhập tên và nhấn Enter để kích hoạt tool<br><br>Lưu ý: tên phải VIẾT HOA và không thừa dấu cách ở cuối tên.";
+        document.getElementsByClassName("displayTrue")[0].innerHTML="Nhập tên và nhấn Enter để kích hoạt tool.";
         document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
 		empname.focus();
     }
@@ -282,11 +285,15 @@ function checkAgentName(agentName) {
                 for (var j=0; j<elements2.length; j++) {
                     elements2[j].disabled = "true";
                 }
-				if (agentName == "DUC HUY")	{
-					document.getElementsByClassName("displayTrue")[0].innerHTML="10k/ngày";
-				}
-                else {
-					document.getElementsByClassName("displayTrue")[0].innerHTML="Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.";
+				switch(agentName) {
+					case "THAI NGHI":
+						setWarning("Tool bị tắt do: SĐT đơn khiếu nại không có ghi âm, khiếu nại nhà Phổ Quang lại ghi Lê Văn Sỹ.");
+						break;
+					case "KHANH NGOC":
+						setWarning("Tool bị tắt do thiếu ticket nhiều mỗi tuần, sẽ mở lại khi leader đồng ý.");
+						break;
+					default: 
+						setWarning("Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.");
 				}
                 document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
 				empname.focus();
