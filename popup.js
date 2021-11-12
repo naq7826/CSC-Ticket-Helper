@@ -58,7 +58,7 @@ var vanDe = document.getElementById("vanDe");
 var tenCTKM = document.getElementById("tenCTKM");
 var lienHeText = document.getElementById("lienHeText");
 var kvghText = document.getElementById("kvghText");
-var flag=0;
+var flag2=0;
 
 //VARIABLES
 var field1="Title_fa564e0f-0c70-4ab9-b863-0177e6ddd247_$TextField"; //TV
@@ -209,51 +209,45 @@ pasteClip.onclick = function() {
     document.execCommand("paste");
 }
 
-window.onclick = function(event) {
-    if (event.target == modalGiaoTre) {
-      modalGiaoTre.style.display = "none";
+modalFooter.onclick = function() {
+    if (flag.value == 0) {
+        saveTicket("TV", "TV", LH, "LIEN HE");
     }
-    console.log(flag.value);
-    if (event.target == modalFooter) {
-        if (flag.value == 0) {
-            saveTicket("TV", "TV", LH, "LIEN HE");
-        }
-        if (flag.value == 1) {
-            saveComplainTicket("KN", "KN", GHTre,"", "GIAO TRE");
-        }
-        if (flag.value == 2) {
-            saveComplainTicket("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: ", "GIAO TRE");
-        }
-        if (flag.value == 3) {
-            saveComplainTicket("KN", "KN", KCL,"", "BANH CHAY");
-        }
-        if (flag.value == 4) {
-            saveComplainTicket("KN", "KN", TSP,"", "GIAO THIEU");
-        }
-        if (flag.value == 5) {
-            saveComplainTicket("KN", "KN", TTDH,"", "GIAO SAI");
-        }
-        if (flag.value == 6) {
-            saveComplainTicket("KN", "KN", LH,"", "XHDD");
-        }
-        if (flag.value == 7) {
-            saveComplainTicket("KN", "KN", LH,"", "NGO DOC");
-        }
-        if (flag.value == 8) {
-            saveComplainTicket("KN", "KN", KCL,"", "CHAT LUONG");
-        }
-        if (flag.value == 9) {
-            saveComplainTicket("KN", "KN", TTHDKCX,"", "SAI TIEN");
-        }
-        if (flag.value == 10) {
-            saveComplainTicket("KN", "KN", LH,"", "CTKM");
-        }
-        if (flag.value == 11) {
-            saveComplainTicket("KN", "KN", TLS,"", "THAI DO");
-        }
-        if (flag.value == 12) {
-            saveTicket("TV", "TV", TVGH,"KVGH");
-        }
+    if (flag.value == 1) {
+        saveComplainTicket("KN", "KN", GHTre,"", "GIAO TRE");
+    }
+    if (flag.value == 2) {
+        saveComplainTicket("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: ", "GIAO TRE");
+    }
+    if (flag.value == 3) {
+        saveComplainTicket("KN", "KN", KCL,"", "BANH CHAY");
+    }
+    if (flag.value == 4) {
+        saveComplainTicket("KN", "KN", TSP,"", "GIAO THIEU");
+    }
+    if (flag.value == 5) {
+        saveComplainTicket("KN", "KN", TTDH,"", "GIAO SAI");
+    }
+    if (flag.value == 6) {
+        saveComplainTicket("KN", "KN", LH,"", "XHDD");
+    }
+    if (flag.value == 7) {
+        saveComplainTicket("KN", "KN", LH,"", "NGO DOC");
+    }
+    if (flag.value == 8) {
+        saveComplainTicket("KN", "KN", KCL,"", "CHAT LUONG");
+    }
+    if (flag.value == 9) {
+        saveComplainTicket("KN", "KN", TTHDKCX,"", "SAI TIEN");
+    }
+    if (flag.value == 10) {
+        saveComplainTicket("KN", "KN", LH,"", "CTKM");
+    }
+    if (flag.value == 11) {
+        saveComplainTicket("KN", "KN", TLS,"", "THAI DO");
+    }
+    if (flag.value == 12) {
+        saveTicket("TV", "TV", TVGH,"KVGH");
     }
 }
 
@@ -281,7 +275,7 @@ function checkAgentName(agentName) {
         empname.value=agentName;
         //alert(AGENTS2);
         if (AGENTS2.includes(agentName)) {
-            flag=0;
+            flag2=0;
             for(var i=0; i<BANNED_AGENTS.length; i++) {
                 if (agentName == BANNED_AGENTS[i]) {
                     for (var j=0; j<elements.length; j++) {
@@ -293,11 +287,11 @@ function checkAgentName(agentName) {
                     setWarning(BANNED_REASON[i]);
                     document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
                     empname.focus();
-                    flag=1;
+                    flag2=1;
                     break;
                 }
             }
-            if (flag == 0) {
+            if (flag2 == 0) {
                 for (var j=0; j<elements.length; j++) {
                     elements[j].style.display="";
                 }
