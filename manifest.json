@@ -22,5 +22,8 @@
       "48": "images/pizza_hut48.png",
       "128": "images/pizza_hut128.png"
     },
+    "web_accessible_resources": [
+      "data/agents.json"
+    ],
     "manifest_version": 2
 }

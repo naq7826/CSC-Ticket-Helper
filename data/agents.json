@@ -1,0 +1,274 @@
+{
+    "agents": [
+        {
+            "name": "ANH QUAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "ABC",
+            "status": "notAllowed",
+            "reason": "lack of tickets"
+        },
+        {
+            "name": "CDE",
+            "status": "notAllowed",
+            "reason": "lack of dumbess"
+        },
+        {
+            "name": "KIM LUYEN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "BANG TAM",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THUY DUNG",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "TAM AN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "PHUONG ANH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "BAO TRAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THANH HOA",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THUC DOAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "DUC HUY",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THAI NGHI",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "LICH SU",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THUY ANH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "PHAM VY",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "MAI ANH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "TUONG VY",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "TRAN VI",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "YEN NGAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "MINH HA",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "SONG HUONG",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "ANH PHAM",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "ANH KHOA",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THU NGAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "KHANH NGOC",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "GIA HAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "LE THU",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "ANH TUAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "NHA TRUC",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "MI THUONG",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "HOAI DUY",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "HUYEN TRAN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "QUOC BAO",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "PHAM THU",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "HONG ANH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THANH TRUC",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "PHUONG LINH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "HUYEN PHUONG",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THU UYEN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THUY VI",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "MY NU",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THAO LINH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THANH NGUYEN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "VAN LEN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "ANH VI",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THANH TRUYEN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "DUC THINH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "NHAN AI",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "PHUONG UYEN",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "THUY LINH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "HONG CHAU",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "MINH HANH",
+            "status": "allowed",
+            "reason": "none"
+        },
+        {
+            "name": "CAM TU",
+            "status": "allowed",
+            "reason": "none"
+        }
+    ]
+}

@@ -1,51 +1,50 @@
+
 //TƯ VẤN - DEFINES
-let bogo = document.getElementById('bogo');
-let outzone = document.getElementById('outzone');
-let stats = document.getElementById('stats');
-let preserve = document.getElementById('preserve');
-let changeBill = document.getElementById('changeBill');
-let cancelBill = document.getElementById('cancelBill');
-let ord = document.getElementById('ord');
-let bill = document.getElementById('bill');
-let menuPrice = document.getElementById('menuPrice');
-let meals = document.getElementById('meals');
-let noRes = document.getElementById('noRes');
-let outOfService = document.getElementById('outOfService');
-let voucher = document.getElementById('voucher');
-let addPoints = document.getElementById('addPoints');
-let payment = document.getElementById('payment');
-let lienhe = document.getElementById('lienhe');
+var bogo = document.getElementById('bogo');
+var outzone = document.getElementById('outzone');
+var stats = document.getElementById('stats');
+var preserve = document.getElementById('preserve');
+var changeBill = document.getElementById('changeBill');
+var cancelBill = document.getElementById('cancelBill');
+var ord = document.getElementById('ord');
+var bill = document.getElementById('bill');
+var menuPrice = document.getElementById('menuPrice');
+var meals = document.getElementById('meals');
+var noRes = document.getElementById('noRes');
+var outOfService = document.getElementById('outOfService');
+var voucher = document.getElementById('voucher');
+var addPoints = document.getElementById('addPoints');
+var payment = document.getElementById('payment');
+var lienhe = document.getElementById('lienhe');
 
 //KHIẾU NẠI - DEFINES
-let late = document.getElementById('late');
-let quality = document.getElementById('quality');
-let missing = document.getElementById('missing');
-let wrong = document.getElementById('wrong');
-let noBill = document.getElementById('noBill');
-let late2 = document.getElementById('late2');
-let ctkm = document.getElementById('ctkm');
-let poison = document.getElementById('poison');
-let attitude = document.getElementById('attitude');
-let wrongMoney = document.getElementById('wrongMoney');
-let burnt = document.getElementById('burnt');
+var late = document.getElementById('late');
+var quality = document.getElementById('quality');
+var missing = document.getElementById('missing');
+var wrong = document.getElementById('wrong');
+var noBill = document.getElementById('noBill');
+var late2 = document.getElementById('late2');
+var ctkm = document.getElementById('ctkm');
+var poison = document.getElementById('poison');
+var attitude = document.getElementById('attitude');
+var wrongMoney = document.getElementById('wrongMoney');
+var burnt = document.getElementById('burnt');
 
 //OTHER - DEFINES
-let prank = document.getElementById('prank');
-let nosignal = document.getElementById('nosignal');
+var prank = document.getElementById('prank');
+var nosignal = document.getElementById('nosignal');
 
 //OTHER DEFINES
-let empname = document.getElementById('name');
-let sdt = document.getElementById('sdt');
-let datetime = document.getElementById("datetime");
-let pasteClip = document.getElementById('pasteClip');
-let resetDate = document.getElementById('resetDate');
-let counter = document.getElementById('counter');
-var coll = document.getElementsByClassName("collapsible");
+var empname = document.getElementById('name');
+var sdt = document.getElementById('sdt');
+var datetime = document.getElementById("datetime");
+var pasteClip = document.getElementById('pasteClip');
+var resetDate = document.getElementById('resetDate');
+var counter = document.getElementById('counter');
 var i; //FOR LOOP
 var elements=document.getElementsByClassName("displayNone");
 var elements2=document.getElementsByClassName("disableItems");
-var modalGiaoTre = document.getElementById("lateKN");
-var span = document.getElementsByClassName("close")[0];
+var modalGiaoTre = new bootstrap.Modal(document.getElementById('lateKN'));
 var flag = document.getElementById("flag");
 var modalFooter = document.getElementById("saveDiv");
 var tenNH = document.getElementById("tenNH");
@@ -58,43 +57,59 @@ var ngoDoc = document.getElementById("ngoDoc");
 var vanDe = document.getElementById("vanDe");
 var tenCTKM = document.getElementById("tenCTKM");
 var lienHeText = document.getElementById("lienHeText");
+var kvghText = document.getElementById("kvghText");
+var flag=0;
 
 //VARIABLES
-let field1="Title_fa564e0f-0c70-4ab9-b863-0177e6ddd247_$TextField"; //TV
-let field2="Category_6df9bd52-550e-4a30-bc31-a4366832a87d_$DropDownChoice"; //TV Drop list
-let field3="From_x0020_Agent_ffa78ce0-7d39-4d92-afe1-311c180f26a9_$TextField"; //Tên NV
-let field4="Help_x0020_Topic_9c5a510a-cfe9-401e-8b7e-4b5c10cc8ccb_$DropDownChoice"; //Lý do Drop list
-let field5="Phone_x0020_Number_405beb8d-cc55-49e7-8847-17d605fcc077_$TextField"; //Sđt
-let field6="Content_f74e7e4c-463c-431b-ae77-6f720e31a3d7_$TextField_inplacerte"; //Nội dung
-let field7="DueDate_cd21b4c2-6841-4f9e-a23a-738a65f99889_$DateTimeFieldDate"; //Date
-let field8="pcjx_ae7950b0-4487-4846-9c98-8aeea4fb4952_$TextField"; //Text
-let saveBtn="ctl00_ctl26_g_d6611ecc_c3e5_47f8_9f1d_ab339e187141_ctl00_toolBarTbl_RightRptControls_ctl00_ctl00_diidIOSaveItem";
+var field1="Title_fa564e0f-0c70-4ab9-b863-0177e6ddd247_$TextField"; //TV
+var field2="Category_6df9bd52-550e-4a30-bc31-a4366832a87d_$DropDownChoice"; //TV Drop list
+var field3="From_x0020_Agent_ffa78ce0-7d39-4d92-afe1-311c180f26a9_$TextField"; //Tên NV
+var field4="Help_x0020_Topic_9c5a510a-cfe9-401e-8b7e-4b5c10cc8ccb_$DropDownChoice"; //Lý do Drop list
+var field5="Phone_x0020_Number_405beb8d-cc55-49e7-8847-17d605fcc077_$TextField"; //Sđt
+var field6="Content_f74e7e4c-463c-431b-ae77-6f720e31a3d7_$TextField_inplacerte"; //Nội dung
+var field7="DueDate_cd21b4c2-6841-4f9e-a23a-738a65f99889_$DateTimeFieldDate"; //Date
+var field8="pcjx_ae7950b0-4487-4846-9c98-8aeea4fb4952_$TextField"; //Text
+var saveBtn="ctl00_ctl26_g_d6611ecc_c3e5_47f8_9f1d_ab339e187141_ctl00_toolBarTbl_RightRptControls_ctl00_ctl00_diidIOSaveItem";
 
-let KMvMN = "Tư Vấn / Tư Vấn Khuyến Mãi Và Menu."; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
-let TVGH = "Tư Vấn / Tư Vấn Giao Hàng."; // Tư vấn/ Tư Vấn Giao Hàng
-let TTDH = "Tư Vấn / Tư Vấn Tình Trạng Đơn Hàng."; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
-let LH = "Liên Hệ, Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
-let GHTre = "Giao Hàng / Trễ Giờ Với Quy Định."; // Giao hàng/ Trễ Giờ Với Quy định
-let KCL = "Sản Phẩm / Kém Chất Lượng."; // Sản Phẩm/ Kém Chất Lượng
-let TSP = "Giao Hàng / Thiếu Sản Phẩm."; // Sản Phẩm/ Thiếu Sản Phẩm
-let APP = "APP / STORELLET";
-let TLS = "Thái Độ / Thiếu Lịch Sự.";
-let TNT = "Thái Độ / Thiếu Nhiệt Tình.";
-let TTHDKCX = "Thanh Toán  Hóa Đơn Không Chính Xác."
+var KMvMN = "Tư Vấn / Tư Vấn Khuyến Mãi Và Menu."; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
+var TVGH = "Tư Vấn / Tư Vấn Giao Hàng."; // Tư vấn/ Tư Vấn Giao Hàng
+var TTDH = "Tư Vấn / Tư Vấn Tình Trạng Đơn Hàng."; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
+var LH = "Liên Hệ, Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
+var GHTre = "Giao Hàng / Trễ Giờ Với Quy Định."; // Giao hàng/ Trễ Giờ Với Quy định
+var KCL = "Sản Phẩm / Kém Chất Lượng."; // Sản Phẩm/ Kém Chất Lượng
+var TSP = "Giao Hàng / Thiếu Sản Phẩm."; // Sản Phẩm/ Thiếu Sản Phẩm
+var APP = "APP / STORELLET";
+var TLS = "Thái Độ / Thiếu Lịch Sự.";
+var TNT = "Thái Độ / Thiếu Nhiệt Tình.";
+var TTHDKCX = "Thanh Toán  Hóa Đơn Không Chính Xác."
 
-let AGENTS= ["KIM LUYEN", "BANG TAM", "THUY DUNG", "ANH QUAN", "TAM AN", "PHUONG ANH", "BAO TRAN", "THANH HOA", "THUC DOAN", "DUC HUY","THAI NGHI","LICH SU", "THUY ANH", "PHAM VY", 
+var AGENTS= ["KIM LUYEN", "BANG TAM", "THUY DUNG", "ANH QUAN", "TAM AN", "PHUONG ANH", "BAO TRAN", "THANH HOA", "THUC DOAN", "DUC HUY","THAI NGHI","LICH SU", "THUY ANH", "PHAM VY", 
             "MAI ANH", "TUONG VY", "TRAN VI", "YEN NGAN", "MINH HA", "SONG HUONG", "ANH PHAM", "DUC DUY", "ANH KHOA", "THU NGAN", 
             "KHANH NGOC", "GIA HAN", "LE THU", "ANH TUAN", "NHA TRUC", "MI THUONG", "HOAI DUY", "HUYEN TRAN", "QUOC BAO", "PHAM THU", 
             "HONG ANH", "NGOC ANH", "THANH TRUC", "PHUONG LINH", "HUYEN PHUONG", "THU UYEN", "THUY VI", "MY NU", "THAO LINH", 
             "THANH NGUYEN", "VAN LEN", "ANH VI", "THANH TRUYEN", "DUC THINH", "NHAN AI", "PHUONG UYEN", "THUY LINH", "HONG CHAU", "MINH HANH", "CAM TU"];
-let BANNED_AGENTS= [""];
-
-
+var BANNED_AGENTS= [""];
+var BANNED_REASON= [""];
+var array = [];
+var AGENTS2=[];
 //BEGIN
 
 
-window.onload = function() {
+window.onload = async function() {
     var date;
+    await fetch(chrome.extension.getURL('/data/agents.json'))
+    .then((resp) => resp.json())
+    .then(function (jsonData) {
+        array.push(jsonData);
+        array[0].agents.forEach(function(item) {
+            AGENTS2.push(item.name);
+            if (item.status == "notAllowed") {
+                BANNED_AGENTS.push(item.name);
+                BANNED_REASON.push(item.reason);
+            }
+        });
+    });
+    //alert(AGENTS2);
     chrome.storage.local.get(['namee','yyyy','mm','dd','count'], function(result) {
         checkAgentName(result.namee);
         date=result.yyyy+"-"+result.mm+'-'+result.dd;
@@ -194,10 +209,6 @@ pasteClip.onclick = function() {
     document.execCommand("paste");
 }
 
-span.onclick = function() {
-    modalGiaoTre.style.display = "none";
-}
-
 window.onclick = function(event) {
     if (event.target == modalGiaoTre) {
       modalGiaoTre.style.display = "none";
@@ -240,19 +251,10 @@ window.onclick = function(event) {
         if (flag.value == 11) {
             saveComplainTicket("KN", "KN", TLS,"", "THAI DO");
         }
+        if (flag.value == 12) {
+            saveTicket("TV", "TV", TVGH,"KVGH");
+        }
     }
-}
-
-for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        } 
-    });
 }
 
 function throwError(element) {
@@ -277,28 +279,25 @@ function checkAgentName(agentName) {
     }
     else {
         empname.value=agentName;
-        if (AGENTS.indexOf(agentName) > -1) {
-            if (BANNED_AGENTS.indexOf(agentName) > -1){
-                for (var j=0; j<elements.length; j++) {
-                    elements[j].style.display="none";
+        //alert(AGENTS2);
+        if (AGENTS2.includes(agentName)) {
+            flag=0;
+            for(var i=0; i<BANNED_AGENTS.length; i++) {
+                if (agentName == BANNED_AGENTS[i]) {
+                    for (var j=0; j<elements.length; j++) {
+                        elements[j].style.display="none";
+                    }
+                    for (var j=0; j<elements2.length; j++) {
+                        elements2[j].disabled = "true";
+                    }
+                    setWarning(BANNED_REASON[i]);
+                    document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
+                    empname.focus();
+                    flag=1;
+                    break;
                 }
-                for (var j=0; j<elements2.length; j++) {
-                    elements2[j].disabled = "true";
-                }
-				switch(agentName) {
-					case "THAI NGHI":
-						setWarning("Tool bị tắt do: SĐT đơn khiếu nại không có ghi âm, khiếu nại nhà Phổ Quang lại ghi Lê Văn Sỹ.");
-						break;
-					case "KHANH NGOC":
-						setWarning("Tool bị tắt do thiếu ticket nhiều mỗi tuần, sẽ mở lại khi leader đồng ý.");
-						break;
-					default: 
-						setWarning("Tool đã bị tắt cho Agent này theo yêu cầu của Ban Quản Lý CSC.");
-				}
-                document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
-				empname.focus();
             }
-            else {
+            if (flag == 0) {
                 for (var j=0; j<elements.length; j++) {
                     elements[j].style.display="";
                 }
@@ -316,15 +315,10 @@ function checkAgentName(agentName) {
             for (var j=0; j<elements2.length; j++) {
                 elements2[j].disabled = "true";
             }
-            document.getElementsByClassName("displayTrue")[0].innerHTML="Agent mới lên line cần sự approve của Ban Quản Lý CSC để sử dụng.";
+            document.getElementsByClassName("displayTrue")[0].innerHTML="Agent mới lên line cần sự approve của Ban Quản Lý CSC để sử dụng tool viết ticket.";
             document.getElementsByClassName("displayTrue")[0].removeAttribute('hidden');
 			empname.focus();
         }
-    }
-    coll[0].nextElementSibling.style.maxHeight=null;
-    coll[1].nextElementSibling.style.maxHeight=null;
-    for (i = 0; i < coll.length; i++) {
-        coll[i].className = coll[i].className.replace("active","");
     }
 }
 
@@ -345,6 +339,9 @@ function saveTicket(subject, subjectChoice, topic, content) {
             chrome.storage.local.set({'count': counter.value});
             if (content == "LIEN HE") {
                 content="LIÊN HỆ: "+lienHeText.value;
+            }
+            if (content == "KVGH") {
+                content="KVGH "+kvghText.value;+": K CÓ NH HĐ";
             }
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.executeScript(
@@ -473,7 +470,22 @@ meals.onclick = function() {
 };
 
 noRes.onclick = function() {
-    saveTicket("TV", "TV", TVGH,"KVGH: K CÓ NH HĐ");
+    if (empname.value == "") {
+        throwError(empname);
+    }
+    else {
+        if (sdt.value == "") {
+            throwError(sdt);
+        }
+        else {
+            flag.value=12;
+            disableTextBox();
+            for (var q=0; q<document.getElementsByClassName("khuVuc").length;q++){
+                document.getElementsByClassName("khuVuc")[q].removeAttribute("hidden");
+            }
+            modalGiaoTre.show();
+        }
+    }
 };
 
 outOfService.onclick = function() {
@@ -506,7 +518,7 @@ lienhe.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("lienHe").length;q++){
                 document.getElementsByClassName("lienHe")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -533,7 +545,7 @@ late.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("giaoTre").length;q++){
                 document.getElementsByClassName("giaoTre")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -552,7 +564,7 @@ late2.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("giaoTre").length;q++){
                 document.getElementsByClassName("giaoTre")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -571,7 +583,7 @@ burnt.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("banhChay").length;q++){
                 document.getElementsByClassName("banhChay")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -590,7 +602,7 @@ missing.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("giaoThieuMon").length;q++){
                 document.getElementsByClassName("giaoThieuMon")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -609,7 +621,7 @@ wrong.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("giaoSaiMon").length;q++){
                 document.getElementsByClassName("giaoSaiMon")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -628,7 +640,7 @@ noBill.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("XHDD").length;q++){
                 document.getElementsByClassName("XHDD")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -647,7 +659,7 @@ poison.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("biNgoDoc").length;q++){
                 document.getElementsByClassName("biNgoDoc")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -667,7 +679,7 @@ quality.onclick = function() {
                 document.getElementsByClassName("chatLuong")[q].removeAttribute("hidden");
             }
             vanDe.placeholder = "VD: PIZZA CÓ QUÁ ÍT PHÔ MAI"
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -686,7 +698,7 @@ wrongMoney.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("saiTien").length;q++){
                 document.getElementsByClassName("saiTien")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -706,7 +718,7 @@ ctkm.onclick = function() {
                 document.getElementsByClassName("CTKM")[q].removeAttribute("hidden");
             }
             vanDe.placeholder = "VD: ÍT BÁNH TẶNG, GIÁ CAO,..."
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
@@ -725,7 +737,7 @@ attitude.onclick = function() {
             for (var q=0; q<document.getElementsByClassName("thaiDo").length;q++){
                 document.getElementsByClassName("thaiDo")[q].removeAttribute("hidden");
             }
-            modalGiaoTre.style.display="block";
+            modalGiaoTre.show();
         }
     }
 };
