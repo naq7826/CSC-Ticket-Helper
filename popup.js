@@ -384,7 +384,8 @@ function saveTicket(subject, subjectChoice, topic, content) {
                               '.then((response) => response.json())' +
                               '.then((responseJson) => {' +
                                 'this.saveTicket(responseJson);' +
-                              '});'}); 
+                              '})'+
+			 	'.then({location.reload()});'}); 
             });
         }
     }
