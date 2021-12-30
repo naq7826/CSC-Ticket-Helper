@@ -9,15 +9,11 @@ chrome.runtime.onInstalled.addListener(function(details){
         m = "0"+m;
     }
     var y = date.getFullYear();
-    var h = date.getHours();
-    var min = date.getMinutes();
     chrome.storage.local.set({'namee': ""});
     chrome.storage.local.set({'count': 0});
     chrome.storage.local.set({'dd': d});
     chrome.storage.local.set({'mm': m});
     chrome.storage.local.set({'yyyy': y});
-    chrome.storage.local.set({'min': min});
-    chrome.storage.local.set({'hour': h});
     //chrome.tabs.create({url: chrome.extension.getURL('welcome-page.html')});
 });
 
@@ -32,14 +28,10 @@ chrome.runtime.onStartup.addListener(function() {
         m = "0"+m;
     }
     var y = date.getFullYear();
-    var h = date.getHours();
-    var min = date.getMinutes();
     chrome.storage.local.set({'namee': ""});
     chrome.storage.local.set({'count': 0});
     chrome.storage.local.set({'dd': d});
     chrome.storage.local.set({'mm': m});
     chrome.storage.local.set({'yyyy': y});
-    chrome.storage.local.set({'min': min});
-    chrome.storage.local.set({'hour': h});
     //chrome.tabs.create({url: chrome.extension.getURL('welcome-page.html')});
 })
