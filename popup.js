@@ -96,9 +96,6 @@ var BANNED_REASON= [""];
 var array = [];
 var AGENTS2=[];
 
-//BEGIN
-
-
 window.onload = async function() {
     var date;
     await fetch(chrome.extension.getURL('/data/agents.json'))
