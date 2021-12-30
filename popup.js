@@ -356,9 +356,6 @@ function saveTicket(subject, subjectChoice, topic, content) {
                                   '"content-type": "application/json;odata=verbose",' +
                                   '"scenario": "CreateListItem",' +
                                   '"scenariotype": "AUO",' +
-                                  '"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",' +
-                                  '"sec-ch-ua-mobile": "?0",' +
-                                  '"sec-ch-ua-platform": "\"Windows\"",' +
                                   '"sec-fetch-dest": "empty",' +
                                   '"sec-fetch-mode": "cors",' +
                                   '"sec-fetch-site": "same-origin",' +
