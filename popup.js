@@ -71,17 +71,20 @@ var field7="DueDate_cd21b4c2-6841-4f9e-a23a-738a65f99889_$DateTimeFieldDate"; //
 var field8="pcjx_ae7950b0-4487-4846-9c98-8aeea4fb4952_$TextField"; //Text
 var saveBtn="ctl00_ctl26_g_d6611ecc_c3e5_47f8_9f1d_ab339e187141_ctl00_toolBarTbl_RightRptControls_ctl00_ctl00_diidIOSaveItem";
 
-var KMvMN = "Tư Vấn / Tư Vấn Khuyến Mãi Và Menu."; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
-var TVGH = "Tư Vấn / Tư Vấn Giao Hàng."; // Tư vấn/ Tư Vấn Giao Hàng
-var TTDH = "Tư Vấn / Tư Vấn Tình Trạng Đơn Hàng."; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
-var LH = "Liên Hệ, Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
-var GHTre = "Giao Hàng / Trễ Giờ Với Quy Định."; // Giao hàng/ Trễ Giờ Với Quy định
-var KCL = "Sản Phẩm / Kém Chất Lượng."; // Sản Phẩm/ Kém Chất Lượng
-var TSP = "Giao Hàng / Thiếu Sản Phẩm."; // Sản Phẩm/ Thiếu Sản Phẩm
-var APP = "APP / STORELLET";
-var TLS = "Thái Độ / Thiếu Lịch Sự.";
-var TNT = "Thái Độ / Thiếu Nhiệt Tình.";
-var TTHDKCX = "Thanh Toán  Hóa Đơn Không Chính Xác."
+var KMvMN = "Tư vấn / Tư vấn Khuyễn Mãi Và Menu"; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
+var TVGH = "Tư vấn / Tư vấn giao hàng"; // Tư vấn/ Tư Vấn Giao Hàng
+var TTDH = "Tư vấn / Tư vấn tính trạng đơn hàng"; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
+var LH = "Liên Hệ Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
+var GHTre = "Giao hàng / Trễ Giờ Với Quy Định"; // Giao hàng/ Trễ Giờ Với Quy định
+var KCL = "Sản phẩm / Kém Chất Lượng"; // Sản Phẩm/ Kém Chất Lượng
+var NDTP = "Sản phẩm / Ngộ Độc Thực Phẩm"; // Sản Phẩm/ Kém Chất Lượng
+var TSP = "Giao hàng / Thiếu Sản Phẩm"; // Sản Phẩm/ Thiếu Sản Phẩm
+var TVWeb = "Web / Tư Vấn Web";
+var KNWeb = "Web / Khiếu Nại Web";
+var APP = "App / STORELLET";
+var TLS = "Thái Độ / Thiếu lịch sự";
+var TNT = "Thái Độ / Thiếu Nhiệt Tình";
+var TTHDKCX = "Thanh Toán Hóa Đơn Không Chính Xác"
 
 var AGENTS= ["KIM LUYEN", "BANG TAM", "THUY DUNG", "ANH QUAN", "TAM AN", "PHUONG ANH", "BAO TRAN", "THANH HOA", "THUC DOAN", "DUC HUY","THAI NGHI","LICH SU", "THUY ANH", "PHAM VY", 
             "MAI ANH", "TUONG VY", "TRAN VI", "YEN NGAN", "MINH HA", "SONG HUONG", "ANH PHAM", "DUC DUY", "ANH KHOA", "THU NGAN", 
@@ -340,14 +343,45 @@ function saveTicket(subject, subjectChoice, topic, content) {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.executeScript(
                         tabs[0].id,
-                        {code: 'document.getElementById("' + field1 + '").value="'+subject+'";'+
-                            'document.getElementById("' + field2 + '").value="'+subjectChoice+'";'+
-                            'document.getElementById("' + field3 + '").value="'+empname.value+'";'+
-                            'document.getElementById("' + field4 + '").value="'+topic+'";'+ 
-                            'document.getElementById("' + field5 + '").value="'+sdt.value+'";'+
-                            'document.getElementById("' + field6 + '").innerHTML="'+content+'";'+
-                            'document.getElementById("' + field7 +'").value="'+dtm+'/'+dtd+'/'+dty+'";'+
-                            'document.getElementById("' + saveBtn + '").click()'}); 
+                        {code: 'function saveTicket(response) {' +
+                                'var digest = response.d.GetContextWebInformation.FormDigestValue;' +
+                                'console.log(digest); fetch("https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/_api/web/GetList(@a1)/AddValidateUpdateItemUsingPath()?@a1=%27%2Fsites%2FIntranetPHVN%2FLists%2FCallcenter%20ticket%27", {' +
+                                '"headers": {' +
+                                  '"accept": "application/json;odata=verbose",' +
+                                  '"accept-language": "en-US,en;q=0.9",' +
+                                  '"collectspperfmetrics": "SPSQLQueryCount",' +
+                                  '"content-type": "application/json;odata=verbose",' +
+                                  '"scenario": "CreateListItem",' +
+                                  '"scenariotype": "AUO",' +
+                                  '"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",' +
+                                  '"sec-ch-ua-mobile": "?0",' +
+                                  '"sec-ch-ua-platform": "\"Windows\"",' +
+                                  '"sec-fetch-dest": "empty",' +
+                                  '"sec-fetch-mode": "cors",' +
+                                  '"sec-fetch-site": "same-origin",' +
+                                  '"x-requestdigest": digest,' +
+                                  '"x-sp-requestresources": "listUrl=%2Fsites%2FIntranetPHVN%2FLists%2FCallcenter%20ticket"' +
+                                '},' +
+                                '"referrer": "https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/Lists/Callcenter%20ticket/AllItems.aspx?isAscending=false&sortField=ID&viewid=5b220d16%2D2f8e%2D4006%2Dbdf9%2Dd99152daa645",' +
+                                '"referrerPolicy": "strict-origin-when-cross-origin",' +
+                                '"body": "{\"listItemCreateInfo\":{\"__metadata\":{\"type\":\"SP.ListItemCreationInformationUsingPath\"},\"FolderPath\":{\"__metadata\":{\"type\":\"SP.ResourcePath\"},\"DecodedUrl\":\"/sites/IntranetPHVN/Lists/Callcenter ticket\"}},\"formValues\":[{\"FieldName\":\"Title\",\"FieldValue\":\"'+subject+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Ng_x00e0_yt_x1ea1_o\",\"FieldValue\":\"'+dtm+'/'+dtd+'/'+dty+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"FromAgent\",\"FieldValue\":\"'+empname.value+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"HelpTopic\",\"FieldValue\":\"'+topic+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Subject\",\"FieldValue\":\"'+subjectChoice+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Content\",\"FieldValue\":\"'+content+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"PhoneNumber\",\"FieldValue\":\"'+sdt.value+'\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Text\",\"FieldValue\":\"\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"ContentType\",\"FieldValue\":\"Item\",\"HasException\":false,\"ErrorMessage\":null}],\"bNewDocumentUpdate\":false,\"checkInComment\":null}",' +
+                                '"method": "POST",' +
+                                '"mode": "cors",' +
+                                '"credentials": "include"' +
+                              '});' +
+                              '}' +
+                              'fetch("https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/_api/contextinfo", {' +
+                                '"headers": {' +
+                                  '"accept": "application/json;odata=verbose",' +
+                                '},' +
+                                '"method": "POST",' +
+                                '"mode": "cors",' +
+                                '"credentials": "include"' +
+                              '})' +
+                              '.then((response) => response.json())' +
+                              '.then((responseJson) => {' +
+                                'this.saveTicket(responseJson);' +
+                              '});'}); 
             });
         }
     }
