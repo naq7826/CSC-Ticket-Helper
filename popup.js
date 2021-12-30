@@ -383,7 +383,7 @@ function saveTicket(subject, subjectChoice, topic, content) {
                               '.then((responseJson) => {' +
                                 'this.saveTicket(responseJson);' +
                               '})'+
-			 	'.then({location.reload()});'}); 
+			 	'.then((responseJson) => {location.reload();});'}); 
             });
         }
     }
