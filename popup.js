@@ -96,51 +96,6 @@ var BANNED_REASON= [""];
 var array = [];
 var AGENTS2=[];
 
-var code='function saveTicket(response) {
-  var digest = response.d.GetContextWebInformation.FormDigestValue;
- console.log(digest); fetch("https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/_api/web/GetList(@a1)/AddValidateUpdateItemUsingPath()?@a1=%27%2Fsites%2FIntranetPHVN%2FLists%2FCallcenter%20ticket%27", {
-  "headers": {
-    "accept": "application/json;odata=verbose",
-    "accept-language": "en-US,en;q=0.9",
-    "collectspperfmetrics": "SPSQLQueryCount",
-    "content-type": "application/json;odata=verbose",
-    "scenario": "CreateListItem",
-    "scenariotype": "AUO",
-    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Windows\"",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requestdigest": digest,
-    "x-sp-requestresources": "listUrl=%2Fsites%2FIntranetPHVN%2FLists%2FCallcenter%20ticket"
-  },
-  "referrer": "https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/Lists/Callcenter%20ticket/AllItems.aspx?isAscending=false&sortField=ID&viewid=5b220d16%2D2f8e%2D4006%2Dbdf9%2Dd99152daa645",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "{\"listItemCreateInfo\":{\"__metadata\":{\"type\":\"SP.ListItemCreationInformationUsingPath\"},\"FolderPath\":{\"__metadata\":{\"type\":\"SP.ResourcePath\"},\"DecodedUrl\":\"/sites/IntranetPHVN/Lists/Callcenter ticket\"}},\"formValues\":[{\"FieldName\":\"Title\",\"FieldValue\":\"Other\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Ng_x00e0_yt_x1ea1_o\",\"FieldValue\":\"12/30/2021 17:46\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"FromAgent\",\"FieldValue\":\"ANH QUAN\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"HelpTopic\",\"FieldValue\":\"Liên Hệ Góp Ý, Đóng Góp Ý Kiến\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Subject\",\"FieldValue\":\"Other\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Content\",\"FieldValue\":\"NM: GỌI LẠI BẬN\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"PhoneNumber\",\"FieldValue\":\"0902894581\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"Text\",\"FieldValue\":\"\",\"HasException\":false,\"ErrorMessage\":null},{\"FieldName\":\"ContentType\",\"FieldValue\":\"Item\",\"HasException\":false,\"ErrorMessage\":null}],\"bNewDocumentUpdate\":false,\"checkInComment\":null}",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-});
-}
-
-
-fetch("https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/_api/contextinfo", {
-  "headers": {
-    "accept": "application/json;odata=verbose",
-  },
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-})
-.then((response) => response.json())
-.then((responseJson) => {
-  this.saveTicket(responseJson);
-})
-.then({
-  location.reload();
-})';
-
 //BEGIN
 
 
