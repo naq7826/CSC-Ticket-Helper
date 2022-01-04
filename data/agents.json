@@ -31,22 +31,12 @@
             "reason": "none"
         },
         {
-            "name": "TAM AN",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
             "name": "PHUONG ANH",
             "status": "allowed",
             "reason": "none"
         },
         {
             "name": "BAO TRAN",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
-            "name": "THANH HOA",
             "status": "allowed",
             "reason": "none"
         },
@@ -62,16 +52,6 @@
         },
         {
             "name": "THAI NGHI",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
-            "name": "LICH SU",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
-            "name": "THUY ANH",
             "status": "allowed",
             "reason": "none"
         },
@@ -92,16 +72,6 @@
         },
         {
             "name": "TRAN VI",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
-            "name": "YEN NGAN",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
-            "name": "MINH HA",
             "status": "allowed",
             "reason": "none"
         },
@@ -156,11 +126,6 @@
             "reason": "none"
         },
         {
-            "name": "HOAI DUY",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
             "name": "HUYEN TRAN",
             "status": "allowed",
             "reason": "none"
@@ -196,22 +161,12 @@
             "reason": "none"
         },
         {
-            "name": "THU UYEN",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
             "name": "THUY VI",
             "status": "allowed",
             "reason": "none"
         },
         {
             "name": "MY NU",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
-            "name": "THAO LINH",
             "status": "allowed",
             "reason": "none"
         },
@@ -241,11 +196,6 @@
             "reason": "none"
         },
         {
-            "name": "NHAN AI",
-            "status": "allowed",
-            "reason": "none"
-        },
-        {
             "name": "PHUONG UYEN",
             "status": "allowed",
             "reason": "none"
@@ -267,6 +217,11 @@
         },
         {
             "name": "CAM TU",
+            "status": "allowed",
+            "reason": "none"
+        },
+	{
+            "name": "NGOC HUYEN",
             "status": "allowed",
             "reason": "none"
         }
