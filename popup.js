@@ -61,78 +61,51 @@ var kvghText = document.getElementById("kvghText");
 var flag2=0;
 
 //VARIABLES
-var field1="Title_fa564e0f-0c70-4ab9-b863-0177e6ddd247_$TextField"; //TV
-var field2="Category_6df9bd52-550e-4a30-bc31-a4366832a87d_$DropDownChoice"; //TV Drop list
-var field3="From_x0020_Agent_ffa78ce0-7d39-4d92-afe1-311c180f26a9_$TextField"; //Tên NV
-var field4="Help_x0020_Topic_9c5a510a-cfe9-401e-8b7e-4b5c10cc8ccb_$DropDownChoice"; //Lý do Drop list
-var field5="Phone_x0020_Number_405beb8d-cc55-49e7-8847-17d605fcc077_$TextField"; //Sđt
-var field6="Content_f74e7e4c-463c-431b-ae77-6f720e31a3d7_$TextField_inplacerte"; //Nội dung
-var field7="DueDate_cd21b4c2-6841-4f9e-a23a-738a65f99889_$DateTimeFieldDate"; //Date
-var field8="pcjx_ae7950b0-4487-4846-9c98-8aeea4fb4952_$TextField"; //Text
-var saveBtn="ctl00_ctl26_g_d6611ecc_c3e5_47f8_9f1d_ab339e187141_ctl00_toolBarTbl_RightRptControls_ctl00_ctl00_diidIOSaveItem";
+var KMvMN = "Tư vấn / Tư vấn Khuyễn Mãi Và Menu"; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
+var TVGH = "Tư vấn / Tư vấn giao hàng"; // Tư vấn/ Tư Vấn Giao Hàng
+var TTDH = "Tư vấn / Tư vấn tính trạng đơn hàng"; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
+var LH = "Liên Hệ Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
+var GHTre = "Giao hàng / Trễ Giờ Với Quy Định"; // Giao hàng/ Trễ Giờ Với Quy định
+var KCL = "Sản phẩm / Kém Chất Lượng"; // Sản Phẩm/ Kém Chất Lượng
+var NDTP = "Sản phẩm / Ngộ Độc Thực Phẩm"; // Sản Phẩm/ Kém Chất Lượng
+var TSP = "Giao hàng / Thiếu Sản Phẩm"; // Sản Phẩm/ Thiếu Sản Phẩm
+var TVWeb = "Web / Tư Vấn Web";
+var KNWeb = "Web / Khiếu Nại Web";
+var APP = "App / STORELLET";
+var TLS = "Thái Độ / Thiếu lịch sự";
+var TNT = "Thái Độ / Thiếu Nhiệt Tình";
+var TTHDKCX = "Thanh Toán Hóa Đơn Không Chính Xác"
 
-var KMvMN = "Tư Vấn / Tư Vấn Khuyến Mãi Và Menu."; // Tư Vấn/ Tư Vấn Khuyến Mãi Và Menu
-var TVGH = "Tư Vấn / Tư Vấn Giao Hàng."; // Tư vấn/ Tư Vấn Giao Hàng
-var TTDH = "Tư Vấn / Tư Vấn Tình Trạng Đơn Hàng."; // Tư vấn/ Tư Vấn Tình Trạng Đơn Hàng
-var LH = "Liên Hệ, Góp Ý, Đóng Góp Ý Kiến"; // Liên Hệ, Góp Ý, Đóng Góp Ý Kiến
-var GHTre = "Giao Hàng / Trễ Giờ Với Quy Định."; // Giao hàng/ Trễ Giờ Với Quy định
-var KCL = "Sản Phẩm / Kém Chất Lượng."; // Sản Phẩm/ Kém Chất Lượng
-var TSP = "Giao Hàng / Thiếu Sản Phẩm."; // Sản Phẩm/ Thiếu Sản Phẩm
-var APP = "APP / STORELLET";
-var TLS = "Thái Độ / Thiếu Lịch Sự.";
-var TNT = "Thái Độ / Thiếu Nhiệt Tình.";
-var TTHDKCX = "Thanh Toán  Hóa Đơn Không Chính Xác."
-
-var AGENTS= ["KIM LUYEN", "BANG TAM", "THUY DUNG", "ANH QUAN", "TAM AN", "PHUONG ANH", "BAO TRAN", "THANH HOA", "THUC DOAN", "DUC HUY","THAI NGHI","LICH SU", "THUY ANH", "PHAM VY", 
-            "MAI ANH", "TUONG VY", "TRAN VI", "YEN NGAN", "MINH HA", "SONG HUONG", "ANH PHAM", "DUC DUY", "ANH KHOA", "THU NGAN", 
-            "KHANH NGOC", "GIA HAN", "LE THU", "ANH TUAN", "NHA TRUC", "MI THUONG", "HOAI DUY", "HUYEN TRAN", "QUOC BAO", "PHAM THU", 
-            "HONG ANH", "NGOC ANH", "THANH TRUC", "PHUONG LINH", "HUYEN PHUONG", "THU UYEN", "THUY VI", "MY NU", "THAO LINH", 
-            "THANH NGUYEN", "VAN LEN", "ANH VI", "THANH TRUYEN", "DUC THINH", "NHAN AI", "PHUONG UYEN", "THUY LINH", "HONG CHAU", "MINH HANH", "CAM TU"];
 var BANNED_AGENTS= [""];
 var BANNED_REASON= [""];
-var array = [];
-var AGENTS2=[];
-//BEGIN
-
+var AGENT_LIST=[];
 
 window.onload = async function() {
     var date;
+	var array = [];
     await fetch(chrome.extension.getURL('/data/agents.json'))
     .then((resp) => resp.json())
     .then(function (jsonData) {
         array.push(jsonData);
         array[0].agents.forEach(function(item) {
-            AGENTS2.push(item.name);
+            AGENT_LIST.push(item.name);
             if (item.status == "notAllowed") {
                 BANNED_AGENTS.push(item.name);
                 BANNED_REASON.push(item.reason);
             }
         });
     });
-    //alert(AGENTS2);
     chrome.storage.local.get(['namee','yyyy','mm','dd','count'], function(result) {
         checkAgentName(result.namee);
         date=result.yyyy+"-"+result.mm+'-'+result.dd;
         document.getElementById("datetime").value=date;
         document.getElementById("counter").value=result.count;
 	});
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		var tab = tabs[0].url.toString();
-		if (!tab.includes("NewForm") && tab.includes("phvsgnfilesrv")) {
-			chrome.tabs.executeScript(
-			tabs[0].id,
-			{code: 'document.getElementById("idHomePageNewItem").click();'});
-		}
-	});
-
-    
   	var input = document.getElementById("sdt").focus();
 }
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    if (!tab.title.includes("New Item")) {
-			window.close();
-		}
+	window.close();
 });
 
 empname.onchange = function(){
@@ -150,17 +123,14 @@ empname.onchange = function(){
 };
 
 sdt.onchange = function() {
-    //sdt.value=sdt.value.trim();
     sdt.value=sdt.value.replace(/[^0-9]/g,"");
 }
 
 soPhut.onchange = function() {
-    //sdt.value=sdt.value.trim();
     soPhut.value=soPhut.value.replace(/[^0-9]/g,"");
 }
 
 billNum.onchange = function() {
-    //sdt.value=sdt.value.trim();
     billNum.value=billNum.value.replace(/[^0-9]/g,"");
 }
 
@@ -214,37 +184,37 @@ modalFooter.onclick = function() {
         saveTicket("TV", "TV", LH, "LIEN HE");
     }
     if (flag.value == 1) {
-        saveComplainTicket("KN", "KN", GHTre,"", "GIAO TRE");
+        saveTicket("KN", "KN", GHTre, "GIAO TRE");
     }
     if (flag.value == 2) {
-        saveComplainTicket("KN", "KN", GHTre,"GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: ", "GIAO TRE");
+        saveTicket("KN", "KN", GHTre, "GIAO TRE NHIEU");
     }
     if (flag.value == 3) {
-        saveComplainTicket("KN", "KN", KCL,"", "BANH CHAY");
+        saveTicket("KN", "KN", KCL, "BANH CHAY");
     }
     if (flag.value == 4) {
-        saveComplainTicket("KN", "KN", TSP,"", "GIAO THIEU");
+        saveTicket("KN", "KN", TSP, "GIAO THIEU");
     }
     if (flag.value == 5) {
-        saveComplainTicket("KN", "KN", TTDH,"", "GIAO SAI");
+        saveTicket("KN", "KN", TTDH, "GIAO SAI");
     }
     if (flag.value == 6) {
-        saveComplainTicket("KN", "KN", LH,"", "XHDD");
+        saveTicket("KN", "KN", LH, "XHDD");
     }
     if (flag.value == 7) {
-        saveComplainTicket("KN", "KN", LH,"", "NGO DOC");
+        saveTicket("KN", "KN", LH, "NGO DOC");
     }
     if (flag.value == 8) {
-        saveComplainTicket("KN", "KN", KCL,"", "CHAT LUONG");
+        saveTicket("KN", "KN", KCL, "CHAT LUONG");
     }
     if (flag.value == 9) {
-        saveComplainTicket("KN", "KN", TTHDKCX,"", "SAI TIEN");
+        saveTicket("KN", "KN", TTHDKCX, "SAI TIEN");
     }
     if (flag.value == 10) {
-        saveComplainTicket("KN", "KN", LH,"", "CTKM");
+        saveTicket("KN", "KN", LH, "CTKM");
     }
     if (flag.value == 11) {
-        saveComplainTicket("KN", "KN", TLS,"", "THAI DO");
+        saveTicket("KN", "KN", TLS, "THAI DO");
     }
     if (flag.value == 12) {
         saveTicket("TV", "TV", TVGH,"KVGH");
@@ -273,8 +243,7 @@ function checkAgentName(agentName) {
     }
     else {
         empname.value=agentName;
-        //alert(AGENTS2);
-        if (AGENTS2.includes(agentName)) {
+        if (AGENT_LIST.includes(agentName)) {
             flag2=0;
             for(var i=0; i<BANNED_AGENTS.length; i++) {
                 if (agentName == BANNED_AGENTS[i]) {
@@ -318,9 +287,12 @@ function checkAgentName(agentName) {
 
 function saveTicket(subject, subjectChoice, topic, content) {
     var dt = new Date(datetime.value);
+    var dt2 = new Date();
     var dtm = dt.getMonth()+1;
     var dtd = dt.getDate();
     var dty = dt.getFullYear();
+    var hh = dt2.getHours();
+    var mm = dt2.getMinutes();
     if (empname.value == "") {
         throwError(empname);
     }
@@ -337,89 +309,94 @@ function saveTicket(subject, subjectChoice, topic, content) {
             if (content == "KVGH") {
                 content="KVGH "+kvghText.value;+": K CÓ NH HĐ";
             }
+			if (content == "GIAO TRE"){
+		        content=tenNH.value.trim()+" GIAO TRỄ "+soPhut.value.trim()+"' (BILL "+billNum.value.trim()+")";
+		    }
+			if (content == "GIAO TRE NHIEU"){
+		        content="GIAO TRỄ KHÁCH GỌI NHIỀU LẦN: "+tenNH.value.trim()+" GIAO TRỄ "+soPhut.value.trim()+"' (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "BANH CHAY"){
+		        content=tenNH.value.trim()+": KHÁCH PHẢN ÁNH BÁNH BỊ CHÁY (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "GIAO THIEU"){
+		        content=tenNH.value.trim()+" GIAO THIẾU "+giaoThieu.value.trim()+" (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "GIAO SAI"){
+		        content=tenNH.value.trim()+" GIAO SAI "+giaoSai.value.trim()+" (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "XHDD"){
+		        content=tenNH.value.trim()+" CHƯA XHDD NGÀY "+chuaXHDD.value.trim()+" (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "NGO DOC"){
+		        if (billNum.value == "" || billNum.value == " ") {
+		            content=tenNH.value.trim()+": KHÁCH PHẢN ÁNH BỊ NGỘ ĐỘC SAU KHI DÙNG "+ngoDoc.value.trim();
+		        }
+		        else content=tenNH.value.trim()+": KHÁCH PHẢN ÁNH BỊ NGỘ ĐỘC SAU KHI DÙNG "+ngoDoc.value.trim()+" (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "CHAT LUONG"){
+		        if (billNum.value == "" || billNum.value == " ") {
+		            content=tenNH.value.trim()+": KHÁCH PHẢN ÁNH "+vanDe.value.trim();
+		        }
+		        else content=tenNH.value.trim()+": KHÁCH PHẢN ÁNH "+vanDe.value.trim()+" (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "SAI TIEN"){
+		        if (billNum.value == "" || billNum.value == " ") {
+		            content="KHÁCH PHẢN ÁNH "+tenNH.value.trim()+" THỐI SAI TIỀN";
+		        }
+		        else content="KHÁCH PHẢN ÁNH "+tenNH.value.trim()+" THỐI SAI TIỀN (BILL "+billNum.value.trim()+")";
+		    }
+		    if (content == "CTKM"){
+		        content="KHÁCH PHẢN ÁNH "+tenCTKM.value.trim()+" "+vanDe.value.trim();
+		    }
+		    if (content == "THAI DO"){
+		        content=tenNH.value.trim()+": KHÁCH PHẢN ÁNH THÁI ĐỘ PHỤC VỤ CỦA NHÂN VIÊN NHÀ HÀNG";
+		    }
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.executeScript(
                         tabs[0].id,
-                        {code: 'document.getElementById("' + field1 + '").value="'+subject+'";'+
-                            'document.getElementById("' + field2 + '").value="'+subjectChoice+'";'+
-                            'document.getElementById("' + field3 + '").value="'+empname.value+'";'+
-                            'document.getElementById("' + field4 + '").value="'+topic+'";'+ 
-                            'document.getElementById("' + field5 + '").value="'+sdt.value+'";'+
-                            'document.getElementById("' + field6 + '").innerHTML="'+content+'";'+
-                            'document.getElementById("' + field7 +'").value="'+dtm+'/'+dtd+'/'+dty+'";'+
-                            'document.getElementById("' + saveBtn + '").click()'}); 
+                        {code: 'function saveTicket(response) {' +
+                                'var digest = response.d.GetContextWebInformation.FormDigestValue;' +
+                                'fetch("https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/_api/web/GetList(@a1)/AddValidateUpdateItemUsingPath()?@a1=%27%2Fsites%2FIntranetPHVN%2FLists%2FCallcenter%20ticket%27", {' +
+                                '"headers": {' +
+                                  '"accept": "application/json;odata=verbose",' +
+                                  '"accept-language": "en-US,en;q=0.9",' +
+                                  '"collectspperfmetrics": "SPSQLQueryCount",' +
+                                  '"content-type": "application/json;odata=verbose",' +
+                                  '"scenario": "CreateListItem",' +
+                                  '"scenariotype": "AUO",' +
+								  '"sec-ch-ua": "\\" Not A;Brand\\";v=\\"99\\", \\"Chromium\\";v=\\"96\\", \\"Google Chrome\\";v=\\"96\\"",' +
+                                  '"sec-ch-ua-mobile": "?0",' +
+                                  '"sec-ch-ua-platform": "\\"Windows\\"",' +
+                                  '"sec-fetch-dest": "empty",' +
+                                  '"sec-fetch-mode": "cors",' +
+                                  '"sec-fetch-site": "same-origin",' +
+                                  '"x-requestdigest": digest,' +
+                                  '"x-sp-requestresources": "listUrl=%2Fsites%2FIntranetPHVN%2FLists%2FCallcenter%20ticket"' +
+                                '},' +
+                                '"referrer": "https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/Lists/Callcenter%20ticket/AllItems.aspx?isAscending=false&sortField=ID&viewid=5b220d16%2D2f8e%2D4006%2Dbdf9%2Dd99152daa645",' +
+                                '"referrerPolicy": "strict-origin-when-cross-origin",' +
+                                '"body": "{\\"listItemCreateInfo\\":{\\"__metadata\\":{\\"type\\":\\"SP.ListItemCreationInformationUsingPath\\"},\\"FolderPath\\":{\\"__metadata\\":{\\"type\\":\\"SP.ResourcePath\\"},\\"DecodedUrl\\":\\"/sites/IntranetPHVN/Lists/Callcenter ticket\\"}},\\"formValues\\":[{\\"FieldName\\":\\"Title\\",\\"FieldValue\\":\\"'+subject+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"Ng_x00e0_yt_x1ea1_o\\",\\"FieldValue\\":\\"'+dtm+'/'+dtd+'/'+dty+' '+hh+':'+mm+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"FromAgent\\",\\"FieldValue\\":\\"'+empname.value+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"HelpTopic\\",\\"FieldValue\\":\\"'+topic+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"Subject\\",\\"FieldValue\\":\\"'+subjectChoice+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"Content\\",\\"FieldValue\\":\\"'+content+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"PhoneNumber\\",\\"FieldValue\\":\\"'+sdt.value+'\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"Text\\",\\"FieldValue\\":\\"\\",\\"HasException\\":false,\\"ErrorMessage\\":null},{\\"FieldName\\":\\"ContentType\\",\\"FieldValue\\":\\"Item\\",\\"HasException\\":false,\\"ErrorMessage\\":null}],\\"bNewDocumentUpdate\\":false,\\"checkInComment\\":null}",' +
+                                '"method": "POST",' +
+                                '"mode": "cors",' +
+                                '"credentials": "include"' +
+                              '});' +
+                              '}' +
+                              'fetch("https://pizzavietnam.sharepoint.com/sites/IntranetPHVN/_api/contextinfo", {' +
+                                '"headers": {' +
+                                  '"accept": "application/json;odata=verbose",' +
+                                '},' +
+                                '"method": "POST",' +
+                                '"mode": "cors",' +
+                                '"credentials": "include"' +
+                              '})' +
+                              '.then((response) => response.json())' +
+                              '.then((responseJson) => {' +
+                                'this.saveTicket(responseJson);' +
+                              '})'+
+			 	'.then((responseJson) => {setTimeout(function() {location.reload();},300)});'}); 
             });
         }
     }
-}
-
-function saveComplainTicket(subject, subjectChoice, topic, mainContent, content) {
-    counter.value=parseInt(counter.value)+1;
-    chrome.storage.local.set({'count': counter.value});
-    if (content == "GIAO TRE"){
-        msg=mainContent+tenNH.value.trim()+" GIAO TRỄ "+soPhut.value.trim()+"' (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+" DELIVERED "+soPhut.value+" MINUTES LATE (BILL "+billNum.value+").";
-    }
-    if (content == "BANH CHAY"){
-        msg=tenNH.value.trim()+": KHÁCH PHẢN ÁNH BÁNH BỊ CHÁY (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+": CUSTOMER COMPLAINED THE PIZZA WAS BURNT (BILL "+billNum.value+").";
-    }
-    if (content == "GIAO THIEU"){
-        msg=tenNH.value.trim()+" GIAO THIẾU "+giaoThieu.value.trim()+" (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+" DID NOT DELIVER ##"+giaoThieu.value+"## (BILL "+billNum.value+").";
-    }
-    if (content == "GIAO SAI"){
-        msg=tenNH.value.trim()+" GIAO SAI "+giaoSai.value.trim()+" (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+" DID NOT DELIVER ##"+giaoThieu.value+"## (BILL "+billNum.value+")";
-        //msg2="";
-    }
-    if (content == "XHDD"){
-        msg=tenNH.value.trim()+" CHƯA XHDD NGÀY "+chuaXHDD.value.trim()+" (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+" DID NOT DELIVER ##"+giaoThieu.value+"## (BILL "+billNum.value+")";
-        //msg2="";
-    }
-    if (content == "NGO DOC"){
-        if (billNum.value == "" || billNum.value == " ") {
-            msg=tenNH.value.trim()+": KHÁCH PHẢN ÁNH BỊ NGỘ ĐỘC SAU KHI DÙNG "+ngoDoc.value.trim();
-        }
-        else msg=tenNH.value.trim()+": KHÁCH PHẢN ÁNH BỊ NGỘ ĐỘC SAU KHI DÙNG "+ngoDoc.value.trim()+" (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+" DID NOT DELIVER ##"+giaoThieu.value+"## (BILL "+billNum.value+")";
-        //msg2="";
-    }
-    if (content == "CHAT LUONG"){
-        if (billNum.value == "" || billNum.value == " ") {
-            msg=tenNH.value.trim()+": KHÁCH PHẢN ÁNH "+vanDe.value.trim();
-        }
-        else msg=tenNH.value.trim()+": KHÁCH PHẢN ÁNH "+vanDe.value.trim()+" (BILL "+billNum.value.trim()+")";
-        //msg2="";
-    }
-    if (content == "SAI TIEN"){
-        if (billNum.value == "" || billNum.value == " ") {
-            msg="KHÁCH PHẢN ÁNH "+tenNH.value.trim()+" THỐI SAI TIỀN";
-        }
-        else msg="KHÁCH PHẢN ÁNH "+tenNH.value.trim()+" THỐI SAI TIỀN (BILL "+billNum.value.trim()+")";
-        //msg2=tenNH.value+" DID NOT DELIVER ##"+giaoThieu.value+"## (BILL "+billNum.value+")";
-        //msg2="";
-    }
-    if (content == "CTKM"){
-        msg="KHÁCH PHẢN ÁNH "+tenCTKM.value.trim()+" "+vanDe.value.trim();
-        //msg2="";
-    }
-    if (content == "THAI DO"){
-        msg=tenNH.value.trim()+": KHÁCH PHẢN ÁNH THÁI ĐỘ PHỤC VỤ CỦA NHÂN VIÊN NHÀ HÀNG";
-        //msg2=tenNH.value+": CUSTOMER COMPLAINED ABOUT THE STAFF'S BAD ATTITUDE.";
-    }
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.executeScript(
-            tabs[0].id,
-            {code: 'document.getElementById("' + field1 + '").value="'+subject+'";'+
-            'document.getElementById("' + field2 + '").value="'+subjectChoice+'";'+
-            'document.getElementById("' + field3 + '").value="'+empname.value+'";'+
-            'document.getElementById("' + field4 + '").value="'+topic+'";'+ 
-            'document.getElementById("' + field5 + '").value="'+sdt.value+'";'+
-            'document.getElementById("' + field6 + '").innerHTML="'+msg+'";'+
-            'document.getElementById("' + saveBtn + '").click()'});
-    });
 }
 
 //TƯ VẤN
@@ -738,9 +715,9 @@ attitude.onclick = function() {
 
 //OTHER
 prank.onclick = function() {
-    saveTicket("OTHER", "Orther", LH,"NM: GỌI LẠI BẬN");
+    saveTicket("OTHER", "Other", LH,"NM: GỌI LẠI BẬN");
 };
 
 nosignal.onclick = function() {
-    saveTicket("OTHER", "Orther", LH,"K TÍN HIỆU: GỌI LẠI BẬN");
+    saveTicket("OTHER", "Other", LH,"K TÍN HIỆU: GỌI LẠI BẬN");
 };

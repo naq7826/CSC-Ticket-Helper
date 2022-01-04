@@ -17,7 +17,7 @@ body {
 
 .tab-content {
     height: 400px;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 div.btn-group {
@@ -74,7 +74,7 @@ div.btn-group {
 
 .other {
     height: 50px;
-    overflow: scroll;
+    overflow: hidden;
     background-color: rgb(150, 0, 0);
 }
 
